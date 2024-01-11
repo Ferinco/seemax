@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { mainApi } from '../api/axios'
+import { Button } from '../custom/button';
+import styled from 'styled-components';
 
 
 export default function LoginPage() {
@@ -34,8 +36,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="p-0 h-screen w-screen wrapp">
-      <div className="container ffg flex flex-row p-28 items-end h-fit gap-44">
+    <Container className="p-0 h-screen w-screen wrapp overflow-hidden">
+      <div className="container ffg flex flex-row p-28 items-end h-fit gap-44 ">
         <div className="ffg  text-start">
           <h2 className="ffg text-9xl font-extrabold text-balance text-start">
             Explore
@@ -44,18 +46,34 @@ export default function LoginPage() {
             <br />
             Magic.
           </h2>
-          <p className="mt-5">CATCH THEM ALL! MISS NONE</p>
-          <div className="flex flex-row gap-3 mt-3">
-            <button>log in</button>
-            <button>join now</button>
+          <p className="mt-5 text-xl">CATCH THEM ALL! MISS NONE</p>
+          <div className="flex flex-row gap-3 mt-6">
+            <Button red className='w-36 py-3.5'>LOG IN</Button>
+            <Button transparent className='w-44 py-3.5'>HOW IT WORKS</Button>
           </div>
         </div>
         <div className="ffg flex flex-row gap-10">
           {movies.slice(0, 2).map((movie, index) => (
-            <img key={index} src={movie.Poster} alt={movie.Title} />
+            <div className='image flex flex-column relative'>
+                <img key={index} src={movie.Poster} alt={movie.Title} />
+                <div className='text absolute'></div>
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
+const Container = styled.div`
+.image{
+    width: 320px;
+    border: 1px solid white;
+    img{
+        width: 100%;
+    }
+    .text{
+        height: 100%;
+        background-color: black;
+    }
+}
+`
