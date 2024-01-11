@@ -77,7 +77,6 @@ button:focus-visible {
   height: fit-content !important;
 }
 .wrapp{
-  border: 1px solid white;
   background-repeat: no-repeat;
   background-position: center;
   background-size:cover ;

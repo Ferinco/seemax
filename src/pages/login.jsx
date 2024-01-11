@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { mainApi } from '../api/axios'
-import { Button } from '../custom/button';
-import styled from 'styled-components';
-
+import { useEffect, useState } from "react";
+import { mainApi } from "../api/axios";
+import { Button } from "../custom/button";
+import styled from "styled-components";
+import { Icon } from "@iconify/react";
 
 export default function LoginPage() {
   const [imageUrl, setImage] = useState("");
@@ -37,8 +37,17 @@ export default function LoginPage() {
 
   return (
     <Container className="p-0 h-screen w-screen wrapp overflow-hidden">
-      <div className="container ffg flex flex-row p-28 items-end h-fit gap-44 ">
-        <div className="ffg  text-start">
+      <div className="container mx-auto flex flex-col h-fit ">
+        <div className="flex flex-row justify-between ">
+            <p>mode</p>
+            <p>logo</p>
+            <button>sign up</button>
+        </div>
+      <div className="flex flex-row gap-44 items-end px-28 py-12">
+        <div className="media flex flex-col gap-2">
+        <Icon icon="gg:facebook" />
+        </div>
+        <div className="  text-start">
           <h2 className="ffg text-9xl font-extrabold text-balance text-start">
             Explore
             <br />
@@ -48,32 +57,57 @@ export default function LoginPage() {
           </h2>
           <p className="mt-5 text-xl">CATCH THEM ALL! MISS NONE</p>
           <div className="flex flex-row gap-3 mt-6">
-            <Button red className='w-36 py-3.5'>LOG IN</Button>
-            <Button transparent className='w-44 py-3.5'>HOW IT WORKS</Button>
+            <Button red className="w-36 py-3.5">
+              LOG IN
+            </Button>
+            <Button transparent className="w-44 py-3.5">
+              HOW IT WORKS
+            </Button>
           </div>
         </div>
-        <div className="ffg flex flex-row gap-10">
+        <div className=" flex flex-row gap-10">
           {movies.slice(0, 2).map((movie, index) => (
-            <div className='image flex flex-column relative'>
-                <img key={index} src={movie.Poster} alt={movie.Title} />
-                <div className='text absolute'></div>
+            <div className="image flex flex-column relative">
+              <img key={index} src={movie.Poster} alt={movie.Title} />
+              <div
+                key={index}
+                className={`text absolute ${
+                  index === 1
+                    ? "second-image"
+                    : "first-image"
+                }`}
+              ></div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </Container>
   );
 }
 const Container = styled.div`
-.image{
+  .image {
     width: 320px;
-    border: 1px solid white;
-    img{
-        width: 100%;
+    img {
+      width: 100%;
     }
-    .text{
-        height: 100%;
-        background-color: black;
+    .text {
+      height: 100%;
+      width: 100%;
+      opacity: 0.9;
+      background: linear-gradient(
+        to top left,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0) 70%
+      );
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
-}
-`
+    .second-image{
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), #000); /* Dark gradient on the right */
+    }
+  }
+`;
