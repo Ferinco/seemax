@@ -4,7 +4,7 @@ import { Button } from "../custom/button";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 
-export default function LoginPage() {
+export default function LandingPage() {
   const [imageUrl, setImage] = useState("");
   const [movies, setMovies] = useState([]);
 
@@ -37,22 +37,22 @@ export default function LoginPage() {
 
   return (
     <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
-      <div className="container mx-auto flex flex-col justify-between h-full"> 
+      <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
             <p>logo</p>
             <Button red className="h-fit">SIGN UP</Button>
         </div>
-      <div className="flex flex-row gap-40 items-end">
-        <div className="media flex flex-col gap-4">
+      <div className="flex lg:flex-row lg:gap-40 lg:items-end gap-20 flex-col-reverse items-start w-fit lg:w-full">
+        <div className="media flex lg:flex-col gap-4 flex-row">
         <Icon className="text-2xl icon" icon="gg:facebook" />
         <Icon className="text-2xl icon" icon="akar-icons:x-fill" />
         <Icon className="text-2xl icon" icon="mingcute:linkedin-fill" />
         <Icon className="text-2xl icon" icon="mingcute:whatsapp-fill" />
         <Icon className="text-2xl icon" icon="basil:gmail-solid" />
         </div>
-        <div className="  text-start ">
-          <h2 className=" text-9xl font-extrabold text-balance text-start">
+        <div className="text-start ">
+          <h2 className=" lg:text-9xl font-extrabold text-balance text-start text-7xl">
             Explore
             <br />
             Great
@@ -69,7 +69,7 @@ export default function LoginPage() {
             </Button>
           </div>
         </div>
-        <div className=" flex flex-row gap-10">
+        <div className=" lg:flex flex-row gap-10 hidden">
           {movies.slice(0, 2).map((movie, index) => (
             <div className="image flex flex-column relative">
               <img key={index} src={movie.Poster} alt={movie.Title} />

@@ -1,12 +1,12 @@
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import "./App.css";
-import LoginPage from "./pages/login";
+import LandingPage from "./pages/landing";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </div>
