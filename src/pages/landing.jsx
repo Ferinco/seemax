@@ -41,7 +41,7 @@ export default function LandingPage() {
         <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
             <p>logo</p>
-            <Button red className="h-fit">SIGN UP</Button>
+            <Button red normal className="h-fit">SIGN UP</Button>
         </div>
       <div className="flex lg:flex-row lg:gap-40 lg:items-end gap-20 flex-col-reverse items-start w-fit lg:w-full">
         <div className="media flex lg:flex-col gap-4 flex-row">
@@ -62,11 +62,11 @@ export default function LandingPage() {
           <p className="mt-5 text-xl font-semibold icon">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
           <div className="flex flex-row gap-3 mt-6">
               <Link to="/login" className="react-router-link">
-            <Button red className="w-36 py-3.5">
+            <Button red normal className="w-36 py-3.5">
             LOG IN
             </Button>
               </Link>
-            <Button transparent className="w-44 py-3.5">
+            <Button normal transparent className="w-44 py-3.5">
               HOW IT WORKS
             </Button>
           </div>

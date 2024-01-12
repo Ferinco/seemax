@@ -3,14 +3,13 @@
 @import 'tailwindcss/utilities';
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+  font-family: 'Poppins', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,6 +18,7 @@
 #root{
   padding: 0 !important;
   margin: 0 0 !important;
+  font-family: 'Poppins', sans-serif;
 }
 a {
   font-weight: 500;
@@ -95,7 +95,7 @@ button:focus-visible {
   bottom: 0;
   background-image: url(/public/istockphoto-1289711187-612x612.jpg);
   background-size: cover;
-  opacity: 0.1; /* Adjust the opacity to control the foggy effect */
+  opacity: 0.1;
   z-index: -1;
 }
 .react-router-link{
