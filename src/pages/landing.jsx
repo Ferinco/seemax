@@ -3,7 +3,7 @@ import { mainApi } from "../api/axios";
 import { Button } from "../custom/button";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-
+import { Link } from "react-router-dom";
 export default function LandingPage() {
   const [imageUrl, setImage] = useState("");
   const [movies, setMovies] = useState([]);
@@ -61,9 +61,11 @@ export default function LandingPage() {
           </h2>
           <p className="mt-5 text-xl font-semibold icon">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
           <div className="flex flex-row gap-3 mt-6">
+              <Link to="/login" className="react-router-link">
             <Button red className="w-36 py-3.5">
-              LOG IN
+            LOG IN
             </Button>
+              </Link>
             <Button transparent className="w-44 py-3.5">
               HOW IT WORKS
             </Button>

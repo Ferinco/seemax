@@ -98,3 +98,8 @@ button:focus-visible {
   opacity: 0.1; /* Adjust the opacity to control the foggy effect */
   z-index: -1;
 }
+.react-router-link{
+  text-decoration: none;
+  color: inherit;
+  border: none !important;
+}
