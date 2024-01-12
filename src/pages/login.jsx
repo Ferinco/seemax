@@ -36,7 +36,7 @@ export default function LoginPage() {
   }
 
   return (
-    <Container className="p-0 h-screen w-screen wrapp overflow-hidden py-5">
+    <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
       <div className="container mx-auto flex flex-col justify-between h-full"> 
         <div className="flex flex-row justify-between ">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
@@ -45,11 +45,11 @@ export default function LoginPage() {
         </div>
       <div className="flex flex-row gap-40 items-end py-12">
         <div className="media flex flex-col gap-4">
-        <Icon className="text-2xl" icon="gg:facebook" />
-        <Icon className="text-2xl" icon="akar-icons:x-fill" />
-        <Icon className="text-2xl" icon="mingcute:linkedin-fill" />
-        <Icon className="text-2xl" icon="mingcute:whatsapp-fill" />
-        <Icon className="text-2xl" icon="basil:gmail-solid" />
+        <Icon className="text-2xl icon" icon="gg:facebook" />
+        <Icon className="text-2xl icon" icon="akar-icons:x-fill" />
+        <Icon className="text-2xl icon" icon="mingcute:linkedin-fill" />
+        <Icon className="text-2xl icon" icon="mingcute:whatsapp-fill" />
+        <Icon className="text-2xl icon" icon="basil:gmail-solid" />
         </div>
         <div className="  text-start ">
           <h2 className=" text-9xl font-extrabold text-balance text-start">
@@ -59,7 +59,7 @@ export default function LoginPage() {
             <br />
             Magic.
           </h2>
-          <p className="mt-5 text-xl font-semibold">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
+          <p className="mt-5 text-xl font-semibold icon">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
           <div className="flex flex-row gap-3 mt-6">
             <Button red className="w-36 py-3.5">
               LOG IN
@@ -85,9 +85,9 @@ export default function LoginPage() {
           ))}
         </div>
         </div>
-        <div className="flex flex-row justify-between ">
+        <div className="flex flex-row justify-between icon">
             <p>CONTACT US</p>
-            <div className="flex flex-row float-end gap-2">
+            <div className="flex flex-row float-end gap-6">
             <p>ABOUT</p>
             <p>SPONSOR US</p>
 
@@ -121,5 +121,11 @@ const Container = styled.div`
     .second-image{
         background: linear-gradient(to right, rgba(0, 0, 0, 0), #000); /* Dark gradient on the right */
     }
+  }
+  h2{
+    color: white;
+  }
+  .icon{
+    color: grey !important;
   }
 `;
