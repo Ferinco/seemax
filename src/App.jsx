@@ -2,8 +2,10 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./pages/landing";
 import LoginPage from "./pages/loginPage";
+import { AppProvider } from "./contexts/context";
 function App() {
   return (
+      <AppProvider>
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -12,6 +14,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </AppProvider>
   );
 }
 
