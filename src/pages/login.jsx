@@ -36,26 +36,30 @@ export default function LoginPage() {
   }
 
   return (
-    <Container className="p-0 h-screen w-screen wrapp overflow-hidden">
-      <div className="container mx-auto flex flex-col h-fit ">
+    <Container className="p-0 h-screen w-screen wrapp overflow-hidden py-5">
+      <div className="container mx-auto flex flex-col justify-between h-full"> 
         <div className="flex flex-row justify-between ">
-            <p>mode</p>
+        <Icon className="text-5xl toggle" icon="ion:toggle" />
             <p>logo</p>
-            <button>sign up</button>
+            <Button red className="h-fit">SIGN UP</Button>
         </div>
-      <div className="flex flex-row gap-44 items-end px-28 py-12">
-        <div className="media flex flex-col gap-2">
-        <Icon icon="gg:facebook" />
+      <div className="flex flex-row gap-40 items-end py-12">
+        <div className="media flex flex-col gap-4">
+        <Icon className="text-2xl" icon="gg:facebook" />
+        <Icon className="text-2xl" icon="akar-icons:x-fill" />
+        <Icon className="text-2xl" icon="mingcute:linkedin-fill" />
+        <Icon className="text-2xl" icon="mingcute:whatsapp-fill" />
+        <Icon className="text-2xl" icon="basil:gmail-solid" />
         </div>
-        <div className="  text-start">
-          <h2 className="ffg text-9xl font-extrabold text-balance text-start">
+        <div className="  text-start ">
+          <h2 className=" text-9xl font-extrabold text-balance text-start">
             Explore
             <br />
             Great
             <br />
             Magic.
           </h2>
-          <p className="mt-5 text-xl">CATCH THEM ALL! MISS NONE</p>
+          <p className="mt-5 text-xl font-semibold">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
           <div className="flex flex-row gap-3 mt-6">
             <Button red className="w-36 py-3.5">
               LOG IN
@@ -80,6 +84,14 @@ export default function LoginPage() {
             </div>
           ))}
         </div>
+        </div>
+        <div className="flex flex-row justify-between ">
+            <p>CONTACT US</p>
+            <div className="flex flex-row float-end gap-2">
+            <p>ABOUT</p>
+            <p>SPONSOR US</p>
+
+            </div>
         </div>
       </div>
     </Container>
