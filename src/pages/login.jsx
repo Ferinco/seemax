@@ -38,12 +38,12 @@ export default function LoginPage() {
   return (
     <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
       <div className="container mx-auto flex flex-col justify-between h-full"> 
-        <div className="flex flex-row justify-between ">
+        <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
             <p>logo</p>
             <Button red className="h-fit">SIGN UP</Button>
         </div>
-      <div className="flex flex-row gap-40 items-end py-12">
+      <div className="flex flex-row gap-40 items-end">
         <div className="media flex flex-col gap-4">
         <Icon className="text-2xl icon" icon="gg:facebook" />
         <Icon className="text-2xl icon" icon="akar-icons:x-fill" />
