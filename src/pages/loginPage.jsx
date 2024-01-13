@@ -42,7 +42,7 @@ export default function LoginPage() {
           <Button red small className="w-72 mt-5">
             Sign In
           </Button>
-          <Link className="underline link">Forgot Password?</Link>
+          <Link className="underline link" to="/home">Forgot Password?</Link>
         </div>
  
       </div>

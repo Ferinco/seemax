@@ -1,12 +1,13 @@
 import Sidebar from "../../custom/sidebar";
-
+import { useAppContext } from "../../contexts/context";
+import Screen from "./screen";
 export default function HomePage(){
-    return(
-        <div className="flex flex-row">
-        <div className="flex flex-col">
+    const { isSidebarOpen } = useAppContext();
+  console.log(isSidebarOpen)
 
-        </div>
-        <Sidebar/>
+    return(
+        <div className="flex flex-col">
+            <Screen/>
         </div>
     )
 }
