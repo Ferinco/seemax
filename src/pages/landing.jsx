@@ -5,19 +5,25 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import OverlayProgress from "../custom/LoadingOverlay";
+import { fetchMovieImg } from "../api/axios";
 export default function LandingPage() {
   const [imageUrl, setImage] = useState("");
   const [movies, setMovies] = useState([]);
 const [loading, setLoading] = useState(true)
   useEffect(() => {
+    setLoading(true)
     getMovieInfo();
+
   }, []);
 
   async function getMovieInfo() {
     try {
       const response = await fetchPopularMovies();
-      setLoading(false)
-      console.log(response);
+      console.log(response)
+     const data = response.data.results
+     setMovies(data)
+      console.log(movies)
+      // setLoading(false)
     } catch (error) {
       console.error("Error fetching movie information:", error.message);
     }
@@ -62,20 +68,22 @@ const [loading, setLoading] = useState(true)
             </Button>
           </div>
         </div>
-        <div className=" lg:flex flex-row gap-10 hidden">
-          {/* {movies.slice(0, 2).map((movie, index) => (
-            <div className="image flex flex-column relative">
-              <img key={index} src={movie.Poster} alt={movie.Title} />
+        <div className=" lg:flex flex-row-reverse gap-10 hidden">
+          {movies.slice(7,9).map((movie, index) => (
+            <div className="image flex flex-col relative h-[500px] w-[320px]">
+              <img key={movie.id} src={fetchMovieImg(movie?.backdrop_path)} alt={movie.Title} className="w-full h-full object-cover object-center" />
               <div
                 key={index}
                 className={`text absolute ${
-                  index === 1
+                  index === 0
                     ? "second-image"
                     : "first-image"
                 }`}
-              ></div>
+              >
+                
+              </div>
             </div>
-          ))} */}
+          ))}
         </div>
         </div>
         <div className="flex flex-row justify-between icon">
@@ -93,11 +101,7 @@ const [loading, setLoading] = useState(true)
   );
 }
 const Container = styled.div`
-  .image {
-    width: 320px;
-    img {
-      width: 100%;
-    }
+
     .text {
       height: 100%;
       width: 100%;
@@ -116,7 +120,6 @@ const Container = styled.div`
     .second-image{
         background: linear-gradient(to right, rgba(0, 0, 0, 0), #000); /* Dark gradient on the right */
     }
-  }
   h2{
     color: white;
   }
