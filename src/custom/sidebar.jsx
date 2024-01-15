@@ -6,9 +6,9 @@ export default function Sidebar() {
   console.log(isSidebarOpen);
   return (
     <Container
-      className={`h-screen w-[300px] ${isSidebarOpen ? "opened" : "closed"}`}
+      className={`h-screen w-3/12 hidden lg:block ${isSidebarOpen ? "opened" : "closed"}`}
     >
-      <button onClick={setIsSidebarOpen(false)}>close</button>
+     
     </Container>
   );
 }

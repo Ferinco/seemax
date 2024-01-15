@@ -1,13 +1,15 @@
-import Sidebar from "../../custom/sidebar";
 import { useAppContext } from "../../contexts/context";
-import Screen from "./screen";
-export default function HomePage(){
-    const { isSidebarOpen } = useAppContext();
-  console.log(isSidebarOpen)
-
-    return(
-        <div className="flex flex-col">
-            <Screen/>
-        </div>
-    )
+import LandingHero from "../../components/landingHero";
+import styled from "styled-components";
+export default function HomePage() {
+  const { isSidebarOpen } = useAppContext();
+  return (
+    <Container className="w-screen lg:w-9/12 h-screen">
+      <LandingHero />
+    </Container>
+  );
 }
+const Container = styled.div`
+    border: 1px solid white;
+
+`
