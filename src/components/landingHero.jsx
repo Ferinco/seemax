@@ -12,6 +12,7 @@ export default function LandingHero() {
     try {
       const response = await fetchPopularMovies();
       setMovies(response.data.results);
+      console.log(movies)
     } catch (error) {
       ComponentStyle.log(error);
     }
@@ -41,30 +42,43 @@ export default function LandingHero() {
   console.log(currentIndex);
 
   return (
-    <Container className="w-[100%] rounded-[30px] h-[500px] flex flex-col">
-      <div className="image relative rounded-[30px] h-full w-full">
+    <Container className="w-[100%] rounded-[30px] h-[500px] flex flex-col relative">
+      <div className="image relative rounded-[30px] h-full w-full ">
         <img
           src={fetchMovieImg(randomMovies[currentIndex]?.backdrop_path)}
           className="relative rounded-[30px] h-full w-full object-cover object-top flex"
         />
       </div>
-        <div className="flex flex-row justify-between absolute p-4 h-[500px] items-end w-full">
-          <div className="flex flex-col justify-start items-start text-start max-w-96">
-            <h4>{randomMovies[currentIndex]?.original_title}</h4>
-            <p>{randomMovies[currentIndex]?.overview}</p>
-            <div className="buttons flex flex-row">
-              <button>trailer</button>
-              <button>details</button>
+      <div className="flex flex-col justify-between p-5 absolute  h-[500px] items-start  backdrop-opacity-10 bg-black/50 rounded-[30px] w-full">
+        <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-1 px-5">
+          Popular Now
+        </div>
+        <div className="flex flex-row justify-between w-full items-end">
+          <div className="flex flex-col justify-start items-start text-start max-w-96 gap-3">
+            <h4 className="text-3xl font-semibold">
+              {randomMovies[currentIndex]?.original_title}
+            </h4>
+            <p className="text-gray-300">
+              {randomMovies[currentIndex]?.overview}
+            </p>
+            <div className="buttons flex flex-row gap-3">
+              <button className="bg-white text-black rounded-3xl px-5">
+                trailer
+              </button>
+              <button className="bg-transparent border border-white px-5 rounded-3xl">
+                details
+              </button>
             </div>
           </div>
-          <div className="buttons flex flex-row">
-        <button onClick={handlePrev}>Previous</button>
-        <button onClick={handleNext}>Next</button> 
+          <div className="buttons flex flex-row h-fit gap-3">
+            <button onClick={handlePrev} className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0">&lt;</button>
+            <button onClick={handleNext} className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0">&gt;</button>
           </div>
         </div>
+      </div>
     </Container>
   );
 }
 const Container = styled.div`
-  width: 100% !important;
+
 `;

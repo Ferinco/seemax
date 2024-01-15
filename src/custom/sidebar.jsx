@@ -6,7 +6,7 @@ export default function Sidebar() {
   console.log(isSidebarOpen);
   return (
     <Container
-      className={`h-screen w-3/12 hidden lg:flex flex-col ${isSidebarOpen ? "opened" : "closed"}`}
+      className={`h-screen w-3/12 hidden lg:flex flex-col ${isSidebarOpen ? "opened fixed" : "closed"}`}
     >
       <button onClick={()=>{setIsSidebarOpen(false)}} className="w-fit">close</button>
      

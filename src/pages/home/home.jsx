@@ -10,6 +10,6 @@ export default function HomePage() {
   );
 }
 const Container = styled.div`
-    border: 1px solid white;
+
 
 `
