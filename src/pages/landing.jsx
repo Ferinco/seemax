@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { mainApi } from "../api/axios";
+import { fetchPopularMovies } from "../api/axios";
 import { Button } from "../custom/button";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
@@ -13,24 +13,11 @@ const [loading, setLoading] = useState(true)
     getMovieInfo();
   }, []);
 
-  const searchLink = mainApi + "&s=marvel";
-
   async function getMovieInfo() {
     try {
-      const response = await fetch(searchLink);
-      console.log(response.json);
-      if (response.ok) {
-        const movieData = await response.json();
-
-        if (movieData.Response === "True") {
-          setMovies(movieData.Search);
-          console.log(movies);
-        } else {
-          console.error("Movie not found!");
-        }
-      } else {
-        console.error("Error:", response.statusText);
-      }
+      const response = await fetchPopularMovies();
+      setLoading(false)
+      console.log(response);
     } catch (error) {
       console.error("Error fetching movie information:", error.message);
     }
@@ -76,7 +63,7 @@ const [loading, setLoading] = useState(true)
           </div>
         </div>
         <div className=" lg:flex flex-row gap-10 hidden">
-          {movies.slice(0, 2).map((movie, index) => (
+          {/* {movies.slice(0, 2).map((movie, index) => (
             <div className="image flex flex-column relative">
               <img key={index} src={movie.Poster} alt={movie.Title} />
               <div
@@ -88,7 +75,7 @@ const [loading, setLoading] = useState(true)
                 }`}
               ></div>
             </div>
-          ))}
+          ))} */}
         </div>
         </div>
         <div className="flex flex-row justify-between icon">

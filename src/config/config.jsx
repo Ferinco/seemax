@@ -1,3 +1,3 @@
 export const config ={
-    apikey : process.env.REACT_APP_API_KEY
+    apikey : import.meta.env.VITE_API_KEY
 }
