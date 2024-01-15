@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   return (
-    <Container className="w-screen lg:w-9/12 h-screen">
+    <Container className="w-full h-screen">
       <LandingHero />
     </Container>
   );

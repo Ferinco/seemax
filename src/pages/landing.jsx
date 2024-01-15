@@ -11,11 +11,15 @@ export default function LandingPage() {
   const [movies, setMovies] = useState([]);
 const [loading, setLoading] = useState(true)
   useEffect(() => {
-    setTimeout(()=>{
+    // setTimeout(()=>{
       getMovieInfo();
-    }, 60)
+      if(movies.length === 0){
+        setLoading(true)
+      }
+      else setLoading(false)
+    // }, 6000)
     
-    setLoading(true)
+    // setLoading(true)
   }, []);
 
   async function getMovieInfo() {
@@ -37,7 +41,7 @@ const [loading, setLoading] = useState(true)
   return (
     <>
     {
-      loading ? <OverlayProgress/> :
+     loading  ? <OverlayProgress/> :
     <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
       <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">

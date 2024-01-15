@@ -103,4 +103,17 @@ button:focus-visible {
   color: inherit;
   border: none !important;
 }
-
+.closed {
+  /* margin-left: -1000px !important; */
+  transition: 0.3s;
+}
+.opened {
+  display: block !important;
+  width: 300px !important;
+  /* position: absolute !important; */
+  z-index: 999;
+  /* margin-left: 0;
+  transition: 0.3s;
+  display: flex;
+  position: fixed !important; */
+}
