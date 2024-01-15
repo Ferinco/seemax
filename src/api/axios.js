@@ -1,1 +1,4 @@
-export const mainApi = "http://www.omdbapi.com/?i=tt3896198&apikey=98753f71"
+import axios from "axios";
+const mainApi = axios.create({
+    baseURL:
+})

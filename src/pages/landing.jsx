@@ -4,10 +4,11 @@ import { Button } from "../custom/button";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import OverlayProgress from "../custom/LoadingOverlay";
 export default function LandingPage() {
   const [imageUrl, setImage] = useState("");
   const [movies, setMovies] = useState([]);
-
+const [loading, setLoading] = useState(true)
   useEffect(() => {
     getMovieInfo();
   }, []);
@@ -36,6 +37,9 @@ export default function LandingPage() {
   }
 
   return (
+    <>
+    {
+      loading ? <OverlayProgress/> :
     <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
       <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">
@@ -97,6 +101,8 @@ export default function LandingPage() {
         </div>
       </div>
     </Container>
+    }
+    </>
   );
 }
 const Container = styled.div`
