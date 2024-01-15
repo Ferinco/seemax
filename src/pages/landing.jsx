@@ -11,21 +11,26 @@ export default function LandingPage() {
   const [movies, setMovies] = useState([]);
 const [loading, setLoading] = useState(true)
   useEffect(() => {
+    setTimeout(()=>{
+      getMovieInfo();
+    }, 60)
+    
     setLoading(true)
-    getMovieInfo();
-
   }, []);
 
   async function getMovieInfo() {
     try {
+      setLoading(true)
       const response = await fetchPopularMovies();
       console.log(response)
      const data = response.data.results
      setMovies(data)
       console.log(movies)
-      // setLoading(false)
     } catch (error) {
       console.error("Error fetching movie information:", error.message);
+    }
+    finally {
+      setLoading(false);
     }
   }
 
@@ -37,7 +42,7 @@ const [loading, setLoading] = useState(true)
       <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
-            <p>logo</p>
+            <img src="/default-monochrome.svg" className="h-[100px] w-[100px]"/>
             <Button red normal className="h-fit">SIGN UP</Button>
         </div>
       <div className="flex lg:flex-row lg:gap-40 lg:items-end gap-20 flex-col-reverse items-start w-fit lg:w-full">
@@ -71,13 +76,13 @@ const [loading, setLoading] = useState(true)
         <div className=" lg:flex flex-row-reverse gap-10 hidden">
           {movies.slice(7,9).map((movie, index) => (
             <div className="image flex flex-col relative h-[500px] w-[320px]">
-              <img key={movie.id} src={fetchMovieImg(movie?.backdrop_path)} alt={movie.Title} className="w-full h-full object-cover object-center" />
+              <img key={index} src={fetchMovieImg(movie?.backdrop_path)} alt={movie.Title} className="w-full h-full object-cover object-center" />
               <div
                 key={index}
                 className={`text absolute ${
                   index === 0
-                    ? "second-image"
-                    : "first-image"
+                    ? "first-image bg-gradient-to-b from-transparent 10% via-neutral-900 30% to-neutral-950 90%"
+                    : "second-image bg-gradient-to-b from-neutral-900 30% via-transparent 30% to-neutral-950 90%"
                 }`}
               >
                 
@@ -106,19 +111,20 @@ const Container = styled.div`
       height: 100%;
       width: 100%;
       opacity: 0.9;
-      background: linear-gradient(
-        to top left,
-        rgba(0, 0, 0, 0) 30%,
-        rgba(0, 0, 0, 0.2) 40%,
-        rgba(0, 0, 0, 0.4) 50%,
-        rgba(0, 0, 0, 0.2) 60%,
-        rgba(0, 0, 0, 0) 70%
-      );
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      z-index: 1;
+
     }
     .second-image{
-        background: linear-gradient(to right, rgba(0, 0, 0, 0), #000); /* Dark gradient on the right */
+      background: linear-gradient(
+  to top left,
+  rgba(0, 0, 0, 0) 20%,  
+  rgba(0, 0, 0, 0.2) 30%,
+  rgba(0, 0, 0, 0.4) 40%,
+  rgba(0, 0, 0, 0.6) 50%,
+  rgba(0, 0, 0, 0.4) 60%,
+  rgba(0, 0, 0, 0.2) 70%,
+  rgba(0, 0, 0, 0) 80% !important  
+);
+
     }
   h2{
     color: white;
