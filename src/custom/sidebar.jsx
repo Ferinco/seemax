@@ -20,10 +20,11 @@ export default function Sidebar() {
 
   return (
     <Container
-      className={`h-screen w-3/12 hidden lg:flex flex-col p-4 gap-2 ${
-        isSidebarOpen ? "opened fixed" : "closed"
+      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed ${
+        isSidebarOpen ? "opened " : "closed"
       }`}
     >
+    <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] h-screen fixed">
       <div className="flex flex-row justify-end ">
         <button
           onClick={() => {
@@ -40,21 +41,30 @@ export default function Sidebar() {
           className="px-4 py-3 w-full rounded-3xl"
         />
       </div>
-      <div className="h-[500px] border rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6">
-        <p className="fixed">Trending</p>
+      <div className="h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-800 ">
+        <p className="fixed">Trending Now</p>
         <div className="flex flex-col gap-3 mt-9">
         {
           movies.map((movie)=>(
-            <div className="image h-48 rounded-[20px]">
-              <img src={fetchMovieImg(movie.backdrop_path)} className="w-full h-full rounded-[20px] object-cover object-center"/>
+            <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
+              <img src={fetchMovieImg(movie.backdrop_path)} className="w-full h-full rounded-[20px] object-cover object-center absolute"/>
+              <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between"> 
+              <p className="text-start">{movie.title}</p>
+              <p>play</p>
+              </div>
             </div>
           ))
         }
         </div>
       </div>
+    </div>
     </Container>
+
   );
 }
 const Container = styled.div`
   border-right: 1px solid white;
+  width: 350px !important;
+
+
 `;

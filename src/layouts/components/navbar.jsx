@@ -5,7 +5,7 @@ export default function Navbar(){
     const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
 
     return(
-        <Container className="flex flex-row justify-between lg:justify-end p-3">
+        <Container className="flex flex-row justify-between lg:justify-end py-3 px-7 ">
             <button className="flex lg:hidden" onClick={
                 ()=>{setIsSidebarOpen(true)}
             }>menu</button>
@@ -20,5 +20,6 @@ export default function Navbar(){
     )
 }
 const Container = styled.div`
+    width: 100%;
     
 `

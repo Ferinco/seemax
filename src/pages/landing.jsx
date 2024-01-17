@@ -11,15 +11,15 @@ export default function LandingPage() {
   const [movies, setMovies] = useState([]);
 const [loading, setLoading] = useState(true)
   useEffect(() => {
-    // setTimeout(()=>{
+    setTimeout(()=>{
       getMovieInfo();
       if(movies.length === 0){
         setLoading(true)
       }
       else setLoading(false)
-    // }, 6000)
+    }, 6000)
     
-    // setLoading(true)
+    setLoading(true)
   }, []);
 
   async function getMovieInfo() {
@@ -42,7 +42,7 @@ const [loading, setLoading] = useState(true)
     <>
     {
      loading  ? <OverlayProgress/> :
-    <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-5">
+    <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-3">
       <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />
@@ -95,7 +95,7 @@ const [loading, setLoading] = useState(true)
           ))}
         </div>
         </div>
-        <div className="flex flex-row justify-between icon">
+        <div className="flex flex-row justify-between icon mt-5">
             <p>CONTACT US</p>
             <div className="flex flex-row float-end gap-6">
             <p>ABOUT</p>
