@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { fetchPopularMovies, fetchMovieImg } from "../api/axios";
 import { useEffect, useState } from "react";
+import { Icon } from "@iconify/react";
 export default function LandingHero() {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +13,7 @@ export default function LandingHero() {
     try {
       const response = await fetchPopularMovies();
       setMovies(response.data.results);
-      console.log(movies)
+      console.log(movies);
     } catch (error) {
       ComponentStyle.log(error);
     }
@@ -62,7 +63,8 @@ export default function LandingHero() {
               {randomMovies[currentIndex]?.overview}
             </p>
             <div className="buttons flex flex-row gap-3">
-              <button className="bg-white text-black rounded-3xl px-5">
+              <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2">
+                <Icon icon="bi:play-fill" color="black" fontSize={20}/>
                 trailer
               </button>
               <button className="bg-transparent border border-white px-5 rounded-3xl">
@@ -71,14 +73,22 @@ export default function LandingHero() {
             </div>
           </div>
           <div className="buttons flex flex-row h-fit gap-3">
-            <button onClick={handlePrev} className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0">&lt;</button>
-            <button onClick={handleNext} className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0">&gt;</button>
+            <button
+              onClick={handlePrev}
+              className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0"
+            >
+              &lt;
+            </button>
+            <button
+              onClick={handleNext}
+              className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0"
+            >
+              &gt;
+            </button>
           </div>
         </div>
       </div>
     </Container>
   );
 }
-const Container = styled.div`
-
-`;
+const Container = styled.div``;

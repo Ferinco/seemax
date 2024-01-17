@@ -5,7 +5,7 @@ import FilterMovies from "../../components/filterMovies";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   return (
-    <Container className="w-full h-screen px-7 flex flex-col gap-8" >
+    <Container className="w-full px-7 flex flex-col gap-10" >
       <LandingHero />
       <FilterMovies/>
     </Container>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useAppContext } from "../contexts/context";
 import { fetchMovieImg, fetchTrendingMovies } from "../api/axios";
 import { useEffect, useState } from "react";
+import { Icon } from "@iconify/react";
 export default function Sidebar() {
   const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
   const [movies, setMovies] = useState([]);
@@ -48,9 +49,11 @@ export default function Sidebar() {
           movies.map((movie)=>(
             <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
               <img src={fetchMovieImg(movie.backdrop_path)} className="w-full h-full rounded-[20px] object-cover object-center absolute"/>
-              <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between"> 
-              <p className="text-start">{movie.title}</p>
-              <p>play</p>
+              <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between items-center"> 
+              <p className="text-start m-0">{movie.title}</p>
+<div className="icon-div p-2 bg-white/50 rounded-[50%]">
+<Icon icon="bi:play-fill" color="white" />
+</div>
               </div>
             </div>
           ))

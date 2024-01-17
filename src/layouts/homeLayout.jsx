@@ -15,11 +15,5 @@ export default function HomeLayout(){
 </div>
     )
 }
-const Container = styled.div`
-.screen{
-    width: calc(100vw - 350px) ;
 
-}
-
-`
     
