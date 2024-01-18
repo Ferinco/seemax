@@ -66,7 +66,6 @@ export default function Sidebar() {
   );
 }
 const Container = styled.div`
-  border-right: 1px solid white;
   width: 350px !important;
 
 

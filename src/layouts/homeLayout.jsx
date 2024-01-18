@@ -6,7 +6,7 @@ import Navbar from "./components/navbar";
 export default function HomeLayout(){
     const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
     return(
-<div className="overflow-hidden w-screen ">
+<div className="overflow-hidden w-screen bg-neutral-800">
     <Sidebar/>
     <div className={` h-auto lg:ml-[350px] flex flex-col relative screen ${isSidebarOpen ? "absolute " : "relative"}`} >
     <Navbar/>

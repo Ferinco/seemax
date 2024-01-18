@@ -59,7 +59,7 @@ export default function LandingHero() {
             <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-1 px-3 flex flex-row items-center gap-1 text-sm">
               <Icon icon="noto:fire" color="#f1f1f1" /> Popular Now
             </div>
-            <div className="flex flex-row justify-between w-full items-end">
+            <div className="flex flex-row justify-between w-full items-end flex-wrap">
               <div className="flex flex-col justify-start items-start text-start max-w-[450px] gap-3">
                 <div className="flex flex-row gap-1">
                   {randomMovies[currentIndex]?.genre_ids?.slice(0, 3).map((genre) => (
