@@ -38,6 +38,8 @@ export const GetMovieGenre = (movie, setGenre) => {
       break;
     case "878":
       setGenre("Sci-fi");
+      case "53":
+      setGenre("Thriller");
       break;
     default:
       setGenre("");
