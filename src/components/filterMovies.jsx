@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchMovieImg, fetchPopularMovies } from "../api/axios";
+import { fetchMovieImg, fetchPopularMovies } from "../utils/api/axios";
 import { Icon } from "@iconify/react";
+import { GetMovieGenre } from "../utils/functions/genres";
 export default function FilterMovies() {
   const [movies, setMovies] = useState([]);
-
+const [genre, setGenre] = useState("")
   useEffect(() => {
     GetMovies();
   }, []);
@@ -23,30 +24,30 @@ export default function FilterMovies() {
     <Container className="flex flex-col gap-8 py-4 overflow-visible">
       <div className="header flex flex-row justify-between items-center">
         <h4 className="text-3xl">Choose your Swag</h4>
-        <div className="flex flex-row gap-3 border py-2 px-5 rounded-[30px]">
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+        <div className="flex flex-row gap-3 py-2 px-5 rounded-[30px] backdrop-blur-sm bg-white/30 ">
+          <button className=" p-1 h-fit px-4 border  rounded-[30px] backdrop-blur-sm bg-transparent">
             hjf
           </button>
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
-            hjf
-          </button>
-
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+          <button className=" p-1 h-fit px-4 bg-transparent">
             hjf
           </button>
 
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+          <button className=" p-1 h-fit px-4 bg-transparent">
             hjf
           </button>
 
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+          <button className=" p-1 h-fit px-4 bg-transparent">
             hjf
           </button>
 
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+          <button className=" p-1 h-fit px-4 bg-transparent">
             hjf
           </button>
-          <button className=" p-1 h-fit px-4 border border-white rounded-[30px]">
+
+          <button className=" p-1 h-fit px-4 bg-transparent">
+            hjf
+          </button>
+          <button className=" p-1 h-fit px-4 bg-transparent">
             hjf
           </button>
         </div>

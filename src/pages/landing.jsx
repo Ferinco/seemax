@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchPopularMovies } from "../api/axios";
+import { fetchPopularMovies } from "../utils/api/axios";
 import { Button } from "../custom/button";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import OverlayProgress from "../custom/LoadingOverlay";
-import { fetchMovieImg } from "../api/axios";
+import { fetchMovieImg } from "../utils/api/axios";
 export default function LandingPage() {
   const [imageUrl, setImage] = useState("");
   const [movies, setMovies] = useState([]);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useAppContext } from "../contexts/context";
-import { fetchMovieImg, fetchTrendingMovies } from "../api/axios";
+import { fetchMovieImg, fetchTrendingMovies } from "../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 export default function Sidebar() {

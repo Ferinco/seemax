@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fetchPopularMovies, fetchMovieImg } from "../api/axios";
+import { fetchPopularMovies, fetchMovieImg } from "../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 export default function LandingHero() {
