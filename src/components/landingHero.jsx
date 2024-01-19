@@ -63,7 +63,7 @@ export default function LandingHero() {
               <div className="flex flex-col justify-start items-start text-start max-w-[450px] gap-3">
                 <div className="flex flex-row gap-1">
                   {randomMovies[currentIndex]?.genre_ids?.slice(0, 3).map((genre) => (
-                    <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm">
+                    <div className="backdrop-blur-md backdrop-opacity-75 bg-white/30 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm">
                       {(() => {
                         switch (genre) {
                           case 28:
@@ -110,10 +110,10 @@ export default function LandingHero() {
                   ))}
                 </div>
                <div className="flex flex-col gap-1">
-               <h4 className="text-3xl font-semibold">
+               <h4 className="text-2xl font-medium">
                   {randomMovies[currentIndex]?.original_title}
                 </h4>
-                <p className="text-gray-300">
+                <p className="text-gray-300 text-sm">
                   {overview === undefined
                     ? "..."
                     : overview?.split(" ").slice(0, 24).join(" ") + "..."}
