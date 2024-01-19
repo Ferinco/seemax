@@ -27,16 +27,28 @@ export default function FilterMovies() {
           <button className=" p-1 h-fit px-4 border  rounded-[30px] backdrop-blur-sm bg-transparent">
             All
           </button>
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">Action</button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            Action
+          </button>
 
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">Thriller</button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            Thriller
+          </button>
 
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">Animation</button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            Animation
+          </button>
 
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">Romance</button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            Romance
+          </button>
 
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">War</button>
-          <button className=" p-1 h-fit px-2 bg-transparent text-sm">Fantasy</button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            War
+          </button>
+          <button className=" p-1 h-fit px-2 bg-transparent text-sm">
+            Fantasy
+          </button>
         </div>
       </div>
       <div className="body w-fit block">
@@ -53,52 +65,54 @@ export default function FilterMovies() {
                     {(() => {
                       switch (movie?.genre_ids[0]) {
                         case 28:
-                            return "Action";
-                          case 53:
-                            return "Thriller";
-                            case 9648:
-                            return "Mystery";
-                          case 10752:
-                            return "War";
-                            case 10751:
-                            return "Family";
-                            case 10749:
-                            return "Romance";
-                            case 37:
-                              return "Western";
-                          case 16:
-                            return "Animation";
-                          case 12:
-                            return "Adventure";
-                          case 35:
-                            return "Comedy";
-                          case 80:
-                            return "Crime";
-                          case 99:
-                            return "Documentary";
-                          case 18:
-                            return "Drama";
-                          case "10751":
-                            return "Family";
-                          case 14:
-                            return "Fantansy";
-                          case 36:
-                            return "History";
-                          case 27:
-                            return "Horror";
-                          case 10402:
-                            return "Music";
-                          case 878:
-                            return "Sci-fi";
-                          default:
-                            return "";
+                          return "Action";
+                        case 53:
+                          return "Thriller";
+                        case 9648:
+                          return "Mystery";
+                        case 10752:
+                          return "War";
+                        case 10751:
+                          return "Family";
+                        case 10749:
+                          return "Romance";
+                        case 37:
+                          return "Western";
+                        case 16:
+                          return "Animation";
+                        case 12:
+                          return "Adventure";
+                        case 35:
+                          return "Comedy";
+                        case 80:
+                          return "Crime";
+                        case 99:
+                          return "Documentary";
+                        case 18:
+                          return "Drama";
+                        case "10751":
+                          return "Family";
+                        case 14:
+                          return "Fantansy";
+                        case 36:
+                          return "History";
+                        case 27:
+                          return "Horror";
+                        case 10402:
+                          return "Music";
+                        case 878:
+                          return "Sci-fi";
+                        default:
+                          return "";
                       }
                     })()}
                   </div>
-                  <h6 className="text-xs text-white">{movie.title?.slice(0,18)+ "..."}</h6>
+                  <h6 className="text-xs text-white">
+                    {movie.title?.slice(0, 18) + "..."}
+                  </h6>
                   <p className="m-0 text-xs text-gray-300">
                     {" "}
-                    {movie.overview?.slice(0, 32)+ "..."}
+                    {movie.overview?.slice(0, 32) + "..."}
                   </p>
                 </div>
                 <div className="icon-div p-2 bg-white rounded-[50%]">
