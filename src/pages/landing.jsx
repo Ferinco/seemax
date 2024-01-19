@@ -69,7 +69,7 @@ const [loading, setLoading] = useState(true)
           <div className="flex flex-row gap-3 mt-6">
               <Link to="/login" className="react-router-link">
             <Button red normal className="w-36 py-3.5">
-            LOG IN
+            GET STARTED
             </Button>
               </Link>
             <Button normal transparent className="w-44 py-3.5">
