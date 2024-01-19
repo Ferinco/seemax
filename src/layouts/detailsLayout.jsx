@@ -5,18 +5,17 @@ import DetailsPage from "../pages/detailsPage";
 import { useAppContext } from "../contexts/context";
 
 export default function DetailsLayout() {
-    const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
-
+  const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
   return (
     <div className="overflow-hidden w-screen bg-neutral-800">
       <Sidebar />
       <div
-        className={` h-auto lg:ml-[350px] flex flex-col relative screen ${
+        className={` h-auto lg:ml-[350px] flex flex-col relative screen${
           isSidebarOpen ? "absolute " : "relative"
         }`}
       >
         <Navbar />
-<DetailsPage/>
+        <DetailsPage />
       </div>
     </div>
   );

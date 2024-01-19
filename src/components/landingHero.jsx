@@ -128,7 +128,7 @@ export default function LandingHero() {
                     Trailer
                   </button>
                   <button className="bg-transparent border border-white px-5 rounded-3xl">
-                   <Link className="react-router-link" to="/details"> Details</Link>
+                   <Link className="react-router-link" to={`/details/${randomMovies[currentIndex]?.id}`}> Details</Link>
                   </button>
                 </div>
               </div>
