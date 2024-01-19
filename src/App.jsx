@@ -5,6 +5,7 @@ import LoginPage from "./pages/loginPage";
 import { AppProvider } from "./contexts/context";
 import HomeLayout from "./layouts/homeLayout";
 import Navbar from "./layouts/components/navbar";
+import DetailsLayout from "./layouts/detailsLayout";
 function App() {
   return (
     <AppProvider>
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/home" element={<HomeLayout />} />
+            <Route path="/details" element={<DetailsLayout />} />
           </Routes>
         </BrowserRouter>
       </div>

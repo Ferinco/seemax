@@ -3,6 +3,7 @@ import { fetchPopularMovies, fetchMovieImg } from "../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import OverlayProgress from "../custom/LoadingOverlay";
+import { Link } from "react-router-dom";
 export default function LandingHero() {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -127,7 +128,7 @@ export default function LandingHero() {
                     Trailer
                   </button>
                   <button className="bg-transparent border border-white px-5 rounded-3xl">
-                    Details
+                   <Link className="react-router-link" to="/details"> Details</Link>
                   </button>
                 </div>
               </div>
