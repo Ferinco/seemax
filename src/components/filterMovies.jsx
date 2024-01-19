@@ -42,7 +42,7 @@ export default function FilterMovies() {
       <div className="body w-fit block">
         <div className="sub flex flex-row gap-2  overflow-auto w-auto">
           {movies.map((movie) => (
-            <div className="image h-64 w-60 relative flex flex-col justify-end ">
+            <div className="image h-72 w-60 relative flex flex-col justify-end ">
               <img
                 src={fetchMovieImg(movie.backdrop_path)}
                 className="h-full w-full object-center object-cover rounded-3xl absolute "
