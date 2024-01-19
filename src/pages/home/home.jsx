@@ -3,6 +3,7 @@ import LandingHero from "../../components/landingHero";
 import styled from "styled-components";
 import FilterMovies from "../../components/filterMovies";
 import UpcomingMovies from "../../components/upcoming";
+import TopCrew from "../../layouts/components/topCrew";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <LandingHero />
       <FilterMovies/>
       <UpcomingMovies/>
+      <TopCrew/>
     </Container>
   );
 }
