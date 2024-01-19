@@ -99,7 +99,7 @@ const [loading, setLoading] = useState(true)
             <p>CONTACT US</p>
             <div className="flex flex-row float-end gap-6">
             <p>ABOUT</p>
-            <p>THANK YOU, <Link to="https://www.themoviedb.org/" className="text-red-700 underline">TMDB</Link></p>
+            <p>THANK YOU, <Link to="https://www.themoviedb.org/" className="text-red-700 underline hover:text-red-700">TMDB</Link></p>
 
             </div>
         </div>
