@@ -53,33 +53,45 @@ export default function FilterMovies() {
                     {(() => {
                       switch (movie?.genre_ids[0]) {
                         case 28:
-                          return "Action";
-                        case 16:
-                          return "Animation";
-                        case 12:
-                          return "Adventure";
-                        case 35:
-                          return "Comedy";
-                        case 80:
-                          return "Crime";
-                        case 99:
-                          return "Documentary";
-                        case 18:
-                          return "Drama";
-                        case "10751":
-                          return "Family";
-                        case 14:
-                          return "Fantansy";
-                        case 36:
-                          return "History";
-                        case 27:
-                          return "Horror";
-                        case 10402:
-                          return "Music";
-                        case 878:
-                          return "Sci-fi";
-                        default:
-                          return "";
+                            return "Action";
+                          case 53:
+                            return "Thriller";
+                            case 9648:
+                            return "Mystery";
+                          case 10752:
+                            return "War";
+                            case 10751:
+                            return "Family";
+                            case 10749:
+                            return "Romance";
+                            case 37:
+                              return "Western";
+                          case 16:
+                            return "Animation";
+                          case 12:
+                            return "Adventure";
+                          case 35:
+                            return "Comedy";
+                          case 80:
+                            return "Crime";
+                          case 99:
+                            return "Documentary";
+                          case 18:
+                            return "Drama";
+                          case "10751":
+                            return "Family";
+                          case 14:
+                            return "Fantansy";
+                          case 36:
+                            return "History";
+                          case 27:
+                            return "Horror";
+                          case 10402:
+                            return "Music";
+                          case 878:
+                            return "Sci-fi";
+                          default:
+                            return "";
                       }
                     })()}
                   </div>

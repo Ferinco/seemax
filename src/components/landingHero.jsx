@@ -70,6 +70,8 @@ export default function LandingHero() {
                             return "Action";
                           case 53:
                             return "Thriller";
+                            case 9648:
+                            return "Mystery";
                           case 10752:
                             return "War";
                             case 10751:
