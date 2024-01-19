@@ -25,14 +25,16 @@ export default function TopCrew() {
           {people?.slice(0, 5).map((person, index) => (
             <div
               key={index}
-              className={`flex flex-col h-80 w-60 justify-between items-center relative ${
+              className={`flex flex-col h-80 w-60 justify-between items-start relative ${
                 index % 2 === 0 ? "mt-8" : ""
               }`}
             >
-              <p className="index z-10">{index + 1}</p>
+             <div className="z-10 flex flex-row items-center justify-start px-3">
+             <p className="index z-10">{index + 1}</p>
               <h6 className="z-10">{person?.name}</h6>
+             </div>
               <img
-                className="w-48 h-64 object-cover object-center mb-[-50px] z-10"
+                className="w-48 h-64 object-cover object-center mb-[-50px] z-10 flex self-center"
                 src={fetchMovieImg(person.profile_path)}
                 alt={`Profile of ${person.name}`}
               />
