@@ -19,3 +19,5 @@ export const fetchMovieImg = (pathName) =>
   mainApi.get(
     `/movie/${id}?api_key=${config.apikey}&language=en-US&append_to_response=videos,images`
   );
+  export const fetchSimilarMovies = (id) =>
+  mainApi.get(`/movie/${id}/similar?api_key=${config.apikey}&language=en-US`);
