@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchCrew, fetchMovieImg } from "../../utils/api/axios";
+import styled from "styled-components";
 
 export default function TopCrew() {
   const [people, setPeople] = useState([]);
@@ -16,16 +17,16 @@ export default function TopCrew() {
     }
   }
   return (
-    <div className="flex flex-col gap-10">
+    <Wrapper className="flex flex-col gap-10">
       <div className="flex justify-normal">
-        <h4>Top Cast</h4>
+        <h4 className="text-2xl">Tops Casts of the Week.</h4>
       </div>
       {
         <div className="flex flex-row justify-between h-[500px] gap-4 w-fit">
           {people?.slice(0, 5).map((person, index) => (
             <div
               key={index}
-              className={`flex flex-col h-80 w-60 justify-between items-start relative ${
+              className={`flex flex-col h-80 w-60 justify-between items-start relative image ${
                 index % 2 === 0 ? "mt-8" : ""
               }`}
             >
@@ -51,6 +52,10 @@ export default function TopCrew() {
           ))}
         </div>
       }
-    </div>
+    </Wrapper>
   );
 }
+const Wrapper = styled.div`
+.image{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
+`

@@ -21,9 +21,9 @@ export default function FilterMovies() {
 
   return (
     <Container className="flex flex-col gap-8 py-4 overflow-visible">
-      <div className="header flex flex-row lg:justify-between items-center justify-center flex-wrap">
-        <h4 className="text-3xl">Choose your Swag</h4>
-        <div className="flex flex-row gap-3 py-2 px-3 rounded-[30px] backdrop-blur-sm bg-white/30 ">
+      <div className="header flex flex-row lg:justify-between items-center justify-start flex-wrap gap-3 sm:gap-0">
+        <h4 className="text-2xl">Top Choices</h4>
+        <div className="sm:flex flex-row gap-3 py-2 px-3 rounded-[30px] backdrop-blur-sm bg-white/30 hidden">
           <button className=" p-1 h-fit px-4 border  rounded-[30px] backdrop-blur-sm bg-transparent">
             All
           </button>

@@ -7,7 +7,7 @@ import TopCrew from "../../layouts/components/topCrew";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   return (
-    <Container className="w-full px-7 flex flex-col gap-10" >
+    <Container className="w-full px-7 flex flex-col gap-12 bg-black/5" >
       <LandingHero />
       <FilterMovies/>
       <UpcomingMovies/>

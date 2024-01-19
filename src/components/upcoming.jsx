@@ -21,7 +21,7 @@ export default function UpcomingMovies() {
   return (
     <div className="flex flex-col gap-6">
       <div className="header text-start flex flex-row justify-between">
-        <h4 className="text-lg">New Releases</h4>
+        <h4 className="text-2xl">New Releases</h4>
         <Link className="text-sm underline">view more</Link>
       </div>
       <div className=" grid sm:grid-cols-2 gap-4 grid-cols-1">

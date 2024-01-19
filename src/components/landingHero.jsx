@@ -48,14 +48,14 @@ export default function LandingHero() {
   return (
     <>
       {randomMovies ? (
-        <Container className="w-[100%] rounded-[30px] h-[500px] flex flex-col relative">
+        <Container className="w-[100%] rounded-[30px] h-[600px] flex flex-col relative sm:h-[500px]">
           <div className="image relative rounded-[30px] h-full w-full ">
             <img
               src={fetchMovieImg(randomMovies[currentIndex]?.backdrop_path)}
               className="relative rounded-[30px] h-full w-full object-cover object-top flex"
             />
           </div>
-          <div className="flex flex-col justify-between p-5 absolute  h-[500px] items-start  backdrop-opacity-10 bg-black/50 rounded-[30px] w-full">
+          <div className="flex flex-col justify-between p-5 absolute  h-full items-start  backdrop-opacity-10 bg-black/50 rounded-[30px] w-full">
             <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-1 px-3 flex flex-row items-center gap-1 text-sm">
               <Icon icon="noto:fire" color="#f1f1f1" /> Popular Now
             </div>
@@ -124,14 +124,14 @@ export default function LandingHero() {
                 <div className="buttons flex flex-row gap-3">
                   <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2">
                     <Icon icon="bi:play-fill" color="black" fontSize={20} />
-                    trailer
+                    Trailer
                   </button>
                   <button className="bg-transparent border border-white px-5 rounded-3xl">
-                    details
+                    Details
                   </button>
                 </div>
               </div>
-              <div className="buttons flex flex-row h-fit gap-3">
+              <div className="control-buttons flex flex-row h-fit gap-3 w-full sm:w-fit justify-end mt-5 sm:mt-0">
                 <button
                   onClick={handlePrev}
                   className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0"
@@ -154,4 +154,6 @@ export default function LandingHero() {
     </>
   );
 }
-const Container = styled.div``;
+const Container = styled.div`
+
+`;
