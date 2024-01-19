@@ -99,7 +99,7 @@ const [loading, setLoading] = useState(true)
             <p>CONTACT US</p>
             <div className="flex flex-row float-end gap-6">
             <p>ABOUT</p>
-            <p>SPONSOR US</p>
+            <p>THANK YOU, <Link>TMDB</Link></p>
 
             </div>
         </div>

@@ -16,7 +16,7 @@ export default function TopCrew() {
     }
   }
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-10">
       <div className="flex justify-normal">
         <h4>Top Cast</h4>
       </div>
