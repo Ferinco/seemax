@@ -34,7 +34,7 @@ export default function DetailsLayout() {
     >
       <Sidebar />
       <div
-        className={` h-auto lg:ml-[350px] flex flex-col relative screen${
+        className={` h-screen lg:ml-[350px] flex flex-col relative screen  backdrop-opacity-100 bg-black/40 ${
           isSidebarOpen ? "absolute " : "relative"
         }`}
       >

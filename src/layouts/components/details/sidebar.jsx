@@ -23,7 +23,7 @@ export default function Sidebar() {
     }
   return (
     <Container
-      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-md backdrop-opacity-75 bg-white/30  ${
+      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-80 bg-black/50  ${
         isSidebarOpen ? "opened " : "closed"
       }`}
     >
