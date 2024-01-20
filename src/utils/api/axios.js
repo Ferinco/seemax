@@ -17,7 +17,7 @@ export const fetchMovieImg = (pathName) =>
   mainApi.get(`/person/popular?api_key=${config.apikey}&language=en-US&page=1`);
   export const fetchSingleMovie = (id) =>
   mainApi.get(
-    `/movie/${id}?api_key=${config.apikey}&language=en-US&append_to_response=videos,images`
+    `/movie/${id}?api_key=${config.apikey}&language=en-US&append_to_response=videos,images,credits`
   );
   export const fetchSimilarMovies = (id) =>
   mainApi.get(`/movie/${id}/similar?api_key=${config.apikey}&language=en-US`);

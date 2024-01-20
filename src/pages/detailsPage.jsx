@@ -7,6 +7,8 @@ import styled from "styled-components";
 export default function DetailsPage() {
   const { id } = useParams();
   const [details, setDetails] = useState();
+  const [tab, setTab] = useState(details?.overview)
+
   useEffect(() => {
     GetDetails();
   }, []);
@@ -14,11 +16,15 @@ export default function DetailsPage() {
     try {
       const response = await fetchSingleMovie(id);
       setDetails(response.data);
-      console.log(details);
+      console.log(response.data);
+    setTab(response?.data.overview)
+
     } catch (error) {
       console.log(error);
     }
   }
+  console.log(tab)
+
   return (
     <Wrapper className="w-full px-7 flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative">
       <div className="flex flex-col items-start max-w-[500px] text-start h-full justify-center gap-2">
@@ -34,13 +40,31 @@ export default function DetailsPage() {
           </button>
         </div>
       </div>
-      <div className="w-full h-[300px] flex flex-col">
+      <div className="w-full h-[300px] flex flex-col gap-7">
         <div className="flex flex-row gap-3">
-            <p className="border-b-2">overview</p>
+            <p className="border-b-2" onClick={()=>{
+              setTab(details?.overview)
+            }}>overview</p>
+            <p onClick={()=>{
+              setTab(details?.credits.cast)
+            }}>casts</p>
             <p>overview</p>
             <p>overview</p>
             <p>overview</p>
-            <p>overview</p>
+        </div>
+        <div className="text-start">
+        {Array.isArray(tab) ? (
+      // Render if 'tab' is an array
+      <div className="flex flex-row">
+        {tab?.slice(0, 5).map((item, index) => (
+          <div key={index}>{item.name}</div>
+        ))}
+      </div>
+    ) : (
+      // Render if 'tab' is not an array
+      <p>{tab}</p>
+    )}
+
         </div>
       </div>
     </Wrapper>
