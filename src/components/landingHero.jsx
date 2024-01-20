@@ -114,7 +114,7 @@ export default function LandingHero() {
                 </div>
                <div className="flex flex-col gap-1">
                <h4 className="text-2xl font-medium">
-                  {randomMovies[currentIndex]?.original_title}
+                  {randomMovies[currentIndex]?.title}
                 </h4>
                 <p className="text-gray-300 text-sm">
                   {overview === undefined
