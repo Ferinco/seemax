@@ -23,7 +23,7 @@ export default function Sidebar() {
     }
   return (
     <Container
-      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-80 bg-black/50  ${
+      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed  backdrop-opacity-100 bg-black/45 backdrop-blur-sm {
         isSidebarOpen ? "opened " : "closed"
       }`}
     >
@@ -38,14 +38,14 @@ export default function Sidebar() {
             &larr;
           </button>
         </div>
-        <div className="field rounded-3xl">
+        <div className="field rounded-3xl ">
           <input
             placeholder="search movies"
-            className="px-7 py-3 w-full rounded-3xl"
+            className="px-7 py-4 w-full rounded-3xl backdrop-blur-sm backdrop-opacity-10 bg-white/40 font-light text-sm"
           />
         </div>
-        <div className="h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
-          <p className="fixed">Similar Movies</p>
+        <div className="h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
+          <p className="fixed font-semibold flex flex-row items-baseline gap-1"> <Icon icon="noto:fire" color="#f1f1f1" /> Similar Movies</p>
           <div className="flex flex-col gap-3 mt-9">
             {movies.map((movie) => (
               <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
@@ -69,5 +69,11 @@ export default function Sidebar() {
 }
 const Container = styled.div`
   width: 350px !important;
+  input{
+    &::placeholder{
+      color: white;
+      font-weight: 400 !important;
+    }
+  }
 `;
 

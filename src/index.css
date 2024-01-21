@@ -43,6 +43,7 @@
   border-radius: 6px; /* Rounded corners */
 }
 
+
 ::-webkit-scrollbar-track {
   background-color: #eee; /* Color of the track (background) */
 }
