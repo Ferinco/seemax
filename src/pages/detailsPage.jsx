@@ -8,9 +8,11 @@ export default function DetailsPage() {
   const { id } = useParams();
   const [details, setDetails] = useState();
   const [tab, setTab] = useState(details?.overview);
+  const [active, setActive] = useState("Overview");
 
   useEffect(() => {
     GetDetails();
+    setActive("Overview")
   }, []);
   async function GetDetails() {
     try {
@@ -25,8 +27,8 @@ export default function DetailsPage() {
   console.log(tab);
 
   return (
-    <Wrapper className="w-full px-7 flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between ">
-      <div className="flex flex-row justify-between items-center my-auto">
+    <Wrapper className="w-full flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between ">
+      <div className="flex flex-row justify-between items-center my-auto px-7">
         <div className="flex flex-col items-start max-w-[500px] text-start  justify-center gap-2">
           <div className="flex flex-row gap-1 mb-2">
             {details?.genres?.map((genre, index) => (
@@ -95,25 +97,34 @@ export default function DetailsPage() {
         </div>
       </div>
       <div className="w-full flex flex-col gap-5 py-3">
-        <div className="tabs flex flex-row gap-3">
+        <div className="tabs flex flex-row gap-3 px-7">
           <p
-            className="border-b-2"
+            className={active === "Overview" ? "border-b-2 text-sm font-medium" : "text-sm font-light"}
             onClick={() => {
               setTab(details?.overview);
+              setActive("Overview");
             }}
           >
             Overview
           </p>
           <p
+            className={active === "Top Cast" ? "border-b-2 text-sm font-medium transition-transform" : "text-sm font-light"}
             onClick={() => {
               setTab(details?.credits.cast);
+              setActive("Top Cast");
             }}
           >
             Top Cast
           </p>
-          <p>overview</p>
-          <p>overview</p>
-          <p>overview</p>
+          <p
+            className={active === "Ratings" ? "border-b-2 text-sm font-medium transition-transform" : "text-sm font-light"}
+            onClick={() => {
+              setTab(details?.credits.cast);
+              setActive("Top Cast");
+            }}
+          >
+           Ratings
+          </p>
         </div>
         <div className="text-start min-h-[150px]">
           <div className="flex flex-row gap-3 overflow-auto">
@@ -123,7 +134,7 @@ export default function DetailsPage() {
                   return tab?.slice(0, 5).map((actor, index) => (
                     <div
                       key={index}
-                      className="flex flex-col items-center gap-1"
+                      className="flex flex-col items-center gap-1 pl-7"
                     >
                       <div className="actor-image w-32 h-32 rounded-[50%] bg-red-950">
                         <img
@@ -136,7 +147,7 @@ export default function DetailsPage() {
                   ));
                 case details?.overview:
                   return (
-                    <div className="flex overflow-auto flex-col">
+                    <div className="flex overflow-auto flex-col px-7">
                       <p>{tab}</p>
                       <div className="">
                         {details.credits.crew.map((director) => (
