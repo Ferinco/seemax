@@ -25,12 +25,15 @@ export default function DetailsPage() {
   console.log(tab);
 
   return (
-    <Wrapper className="w-full px-7 flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between">
+    <Wrapper className="w-full px-7 flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between ">
       <div className="flex flex-row justify-between items-center my-auto">
         <div className="flex flex-col items-start max-w-[500px] text-start  justify-center gap-2">
           <div className="flex flex-row gap-1 mb-2">
             {details?.genres?.map((genre, index) => (
-              <div className="backdrop-blur-md backdrop-opacity-75 bg-white/35 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm" key={index}>
+              <div
+                className="backdrop-blur-md backdrop-opacity-75 bg-white/35 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm"
+                key={index}
+              >
                 {(() => {
                   switch (genre.id) {
                     case 28:
@@ -90,9 +93,8 @@ export default function DetailsPage() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col h-40 w-20 rounded-2xl backdrop-blur-sm bg-white/30"></div>
       </div>
-      <div className="w-full min-h-[250px] flex flex-col gap-5 ">
+      <div className="w-full flex flex-col gap-5 py-3">
         <div className="tabs flex flex-row gap-3">
           <p
             className="border-b-2"
@@ -113,13 +115,16 @@ export default function DetailsPage() {
           <p>overview</p>
           <p>overview</p>
         </div>
-        <div className="text-start">
+        <div className="text-start min-h-[150px]">
           <div className="flex flex-row gap-3 overflow-auto">
             {(() => {
               switch (tab) {
                 case details?.credits.cast:
                   return tab?.slice(0, 5).map((actor, index) => (
-                    <div key={index} className="flex flex-col items-center gap-1">
+                    <div
+                      key={index}
+                      className="flex flex-col items-center gap-1"
+                    >
                       <div className="actor-image w-32 h-32 rounded-[50%] bg-red-950">
                         <img
                           src={fetchMovieImg(actor.profile_path)}
@@ -131,8 +136,24 @@ export default function DetailsPage() {
                   ));
                 case details?.overview:
                   return (
-                    <div className="flex max-w-[500px] overflow-auto">
+                    <div className="flex overflow-auto flex-col">
                       <p>{tab}</p>
+                      <div className="">
+                        {details.credits.crew.map((director) => (
+                          <div
+                            className={`flex flex-row items-center gap-1 mt-1 h-fit p-0 m-0 justify-start ${
+                              director.job === "Director" ? "flex" : "hidden"
+                            }`}
+                          >
+                            <p className="text-sm">
+                              {director.job === "Director" ? "Director:" : ""}
+                            </p>
+                            <p>
+                              {director.job === "Director" ? director.name : ""}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   );
                 case 9648:
