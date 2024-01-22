@@ -17,16 +17,17 @@ export default function TopCrew() {
     }
   }
   return (
-    <Wrapper className="flex flex-col gap-10">
+    <Wrapper className="flex flex-col gap-10 w-auto">
       <div className="flex justify-normal">
         <h4 className="text-2xl">Tops Casts of the Week.</h4>
       </div>
+      <div className="overflow-auto">
       {
         <div className="flex flex-row justify-between h-[500px] gap-4 w-fit">
           {people?.slice(0, 5).map((person, index) => (
             <div
               key={index}
-              className={`flex flex-col h-80 w-60 justify-between items-start relative image ${
+              className={`flex flex-col h-80 w-60 justify-between items-start relative image  ${
                 index % 2 === 0 ? "mt-8" : ""
               }`}
             >
@@ -52,6 +53,8 @@ export default function TopCrew() {
           ))}
         </div>
       }
+
+      </div>
     </Wrapper>
   );
 }
