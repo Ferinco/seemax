@@ -24,7 +24,7 @@ export default function DetailsPage() {
       setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false);
+      // setLoading(false);
     }
   }
   console.log(tab);
@@ -39,7 +39,7 @@ export default function DetailsPage() {
         </div>
       ) : (
         <Wrapper className="w-full flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between ">
-          <div className="flex flex-row justify-between items-center my-auto md:px-7 px:4">
+          <div className="flex flex-row justify-between items-center my-auto md:px-7 px-4">
             <div className="flex flex-col items-start max-w-[500px] text-start  justify-center gap-2">
               <div className="flex flex-row gap-1 mb-2">
                 {details?.genres?.map((genre, index) => (
@@ -95,7 +95,7 @@ export default function DetailsPage() {
                 ))}
               </div>
               <h2 className="text-4xl font-bold">{details?.title}</h2>
-              <p>
+              <p className=" font-extralight">
                 {details?.overview.split(" ").slice(0, 30).join(" ") + "..."}
               </p>
               <div className="buttons flex flex-row gap-3 mt-4">
@@ -110,7 +110,7 @@ export default function DetailsPage() {
             </div>
           </div>
           <div className="w-full flex flex-col gap-5 py-3">
-            <div className="tabs flex flex-row gap-3 md:px-7 px:4">
+            <div className="tabs flex flex-row gap-3 md:px-7 px-4">
               <p
                 className={
                   active === "Overview"
@@ -151,8 +151,8 @@ export default function DetailsPage() {
                 Ratings
               </p>
             </div>
-            <div className="text-start min-h-[150px]">
-              <div className="flex flex-row gap-3 overflow-auto">
+            <div className="text-start h-[100px] overflow-auto ">
+              <div className="flex flex-row gap-2 overflow-auto">
                 {(() => {
                   switch (tab) {
                     case details?.credits.cast:
@@ -161,7 +161,7 @@ export default function DetailsPage() {
                           key={index}
                           className="flex flex-col items-center gap-1 md:pl-7 pl-4"
                         >
-                          <div className="actor-image w-32 h-32 rounded-[50%] bg-red-950">
+                          <div className="actor-image w-20 h-20 rounded-[50%] bg-red-950">
                             <img
                               src={fetchMovieImg(actor.profile_path)}
                               className="w-full h-full object-center object-cover rounded-[50%]"
@@ -173,7 +173,7 @@ export default function DetailsPage() {
                     case details?.overview:
                       return (
                         <div className="flex overflow-auto flex-col md:px-7 px-4">
-                          <p>{tab}</p>
+                          <p className="font-extralight text-sm">{tab}</p>
                           <div className="">
                             {details.credits.crew.map((director) => (
                               <div
@@ -183,12 +183,12 @@ export default function DetailsPage() {
                                     : "hidden"
                                 }`}
                               >
-                                <p className="text-sm">
+                                <p className="text-sm font-extralight mt-4">
                                   {director.job === "Director"
                                     ? "Director:"
                                     : ""}
                                 </p>
-                                <p>
+                                <p className="text-sm font-extralight mt-4">
                                   {director.job === "Director"
                                     ? director.name
                                     : ""}

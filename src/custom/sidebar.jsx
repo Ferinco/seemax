@@ -43,7 +43,11 @@ export default function Sidebar() {
           />
         </div>
         <div className="h-[600px] sm:h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
-          <p className="fixed">Trending Now</p>
+          <p className="fixed font-semibold flex flex-row items-baseline gap-1 ">
+            {" "}
+            <Icon icon="noto:fire" color="#f1f1f1" /> Trending Now
+          </p>
+
           <div className="flex flex-col gap-3 mt-9">
             {movies.map((movie) => (
               <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
