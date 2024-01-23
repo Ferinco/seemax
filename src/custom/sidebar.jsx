@@ -21,11 +21,11 @@ export default function Sidebar() {
 
   return (
     <Container
-      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-md backdrop-opacity-75 bg-white/30  ${
+      className={`h-screen w-[350px]  xs:w-screen hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-90 bg-white/30  ${
         isSidebarOpen ? "opened " : "closed"
       }`}
     >
-      <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] h-screen fixed">
+      <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] xs:w-screen h-screen fixed">
         <div className="flex flex-row justify-end lg:hidden">
           <button
             onClick={() => {
@@ -42,7 +42,7 @@ export default function Sidebar() {
             className="px-7 py-3 w-full rounded-3xl"
           />
         </div>
-        <div className="h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
+        <div className="h-[600px] sm:h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
           <p className="fixed">Trending Now</p>
           <div className="flex flex-col gap-3 mt-9">
             {movies.map((movie) => (
@@ -66,5 +66,5 @@ export default function Sidebar() {
   );
 }
 const Container = styled.div`
-  width: 350px !important;
+  /* width: 350px !important; */
 `;

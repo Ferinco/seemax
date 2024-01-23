@@ -47,7 +47,7 @@ export default function LandingHero() {
   console.log(randomMovies[currentIndex]?.genre_ids);
 
   return (
-    <>
+    <div>
       {randomMovies ? (
         <Container className="w-[100%] rounded-[30px] h-[600px] flex flex-col relative sm:h-[500px]">
           <div className="image relative rounded-[30px] h-full w-full ">
@@ -116,10 +116,15 @@ export default function LandingHero() {
                <h4 className="text-2xl font-medium">
                   {randomMovies[currentIndex]?.title}
                 </h4>
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-300 text-sm sm:flex hidden">
                   {overview === undefined
                     ? "..."
                     : overview?.split(" ").slice(0, 24).join(" ") + "..."}
+                </p>
+                <p className="text-gray-300 text-sm sm:hidden flex">
+                  {overview === undefined
+                    ? "..."
+                    : overview?.split(" ").slice(0, 14).join(" ") + "..."}
                 </p>
                </div>
                 <div className="buttons flex flex-row gap-3">
@@ -132,16 +137,16 @@ export default function LandingHero() {
                   </button>
                 </div>
               </div>
-              <div className="control-buttons flex flex-row h-fit gap-3 w-full sm:w-fit justify-end mt-5 sm:mt-0">
+              <div className="control-buttons flex flex-row h-fit gap-3 w-full sm:w-fit justify-end mt-3 sm:mt-0">
                 <button
                   onClick={handlePrev}
-                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0"
+                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0"
                 >
                   &lt;
                 </button>
                 <button
                   onClick={handleNext}
-                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[50px] w-[50px] p-0"
+                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0"
                 >
                   &gt;
                 </button>
@@ -152,7 +157,7 @@ export default function LandingHero() {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 }
 const Container = styled.div`

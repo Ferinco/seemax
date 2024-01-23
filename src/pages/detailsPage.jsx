@@ -7,6 +7,7 @@ import styled from "styled-components";
 export default function DetailsPage() {
   const { id } = useParams();
   const [details, setDetails] = useState();
+  const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState(details?.overview);
   const [active, setActive] = useState("Overview");
 
@@ -20,13 +21,25 @@ export default function DetailsPage() {
       setDetails(response.data);
       console.log(response.data);
       setTab(response?.data.overview);
+      setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   }
   console.log(tab);
 
   return (
+    <>
+    {
+      loading ? (
+
+        <div className="w-full h-screen absolute bg-neutral-900 backdrop-blur-md flex flex-col justify-center">
+<div className="glowing-spinner" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+        </div>
+      ) : (
     <Wrapper className="w-full flex flex-col gap-7 bg-black/5 h-full flex-flex-col relative justify-between ">
       <div className="flex flex-row justify-between items-center my-auto px-7">
         <div className="flex flex-col items-start max-w-[500px] text-start  justify-center gap-2">
@@ -209,6 +222,10 @@ export default function DetailsPage() {
         </div>
       </div>
     </Wrapper>
+
+      )
+    }
+    </>
   );
 }
 const Wrapper = styled.div`
@@ -221,4 +238,9 @@ const Wrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
   }
+
+
+
+
+
 `;

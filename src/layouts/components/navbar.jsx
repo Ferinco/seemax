@@ -6,7 +6,7 @@ export default function Navbar(){
     const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
 
     return(
-        <Container className="flex flex-row justify-between lg:justify-end py-3 px-7 bg-black/5">
+        <Container className="flex flex-row justify-between lg:justify-end py-3 md:px-7 px-4 bg-black/5">
             <button className="flex lg:hidden" onClick={
                 ()=>{setIsSidebarOpen(true)}
             }><Icon icon="ci:menu-alt-01" rotate={2} /></button>

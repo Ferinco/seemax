@@ -37,7 +37,9 @@
   width: 7px; /* Adjust the width as needed */
   display: none !important;
 }
-
+p, h2, h1, h4, h5, h6{
+color: white !important;
+}
 ::-webkit-scrollbar-thumb {
   background-color: #888; /* Color of the thumb (dragging part) */
   border-radius: 6px; /* Rounded corners */
@@ -138,7 +140,12 @@ button:focus-visible {
 }
 .react-router-link{
   text-decoration: none;
-  color: inherit;
+  color: inherit !important;
+  border: none !important;
+}
+.react-router-link :hover{
+  text-decoration: none;
+  color: inherit !important;
   border: none !important;
 }
 .closed {
@@ -147,7 +154,7 @@ button:focus-visible {
 }
 .opened {
   display: flex !important;
-  width: 350px !important;
+  /* width: 350px !important; */
   /* position: absolute !important; */
   z-index: 999;
   transition: 0.3s;

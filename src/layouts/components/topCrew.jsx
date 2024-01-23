@@ -17,13 +17,13 @@ export default function TopCrew() {
     }
   }
   return (
-    <Wrapper className="flex flex-col gap-10 w-auto">
-      <div className="flex justify-normal">
+    <Wrapper className="flex flex-col gap-10 w-auto py-4">
+      <div className="flex justify-normal md:px-7 px-4">
         <h4 className="text-2xl">Tops Casts of the Week.</h4>
       </div>
       <div className="overflow-auto">
       {
-        <div className="flex flex-row justify-between h-[500px] gap-4 w-fit">
+        <div className="flex flex-row justify-between h-[500px] gap-4 w-fit md:pl-7 pr-4 pl-4">
           {people?.slice(0, 5).map((person, index) => (
             <div
               key={index}
@@ -55,10 +55,13 @@ export default function TopCrew() {
       }
 
       </div>
+  
     </Wrapper>
   );
 }
 const Wrapper = styled.div`
 .image{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;}
+  /* MySpinner.css */
+
 `
