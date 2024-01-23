@@ -4,7 +4,7 @@ import { fetchMovieImg, fetchTrendingMovies } from "../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 export default function Sidebar() {
-  const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
+  const { isSidebarOpen, setIsSidebarOpen, isSearchOpen, setSearchOpen } = useAppContext();
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     getMovies();
@@ -18,7 +18,7 @@ export default function Sidebar() {
       console.log(error);
     }
   }
-
+console.log(isSearchOpen)
   return (
     <Container
       className={`h-screen w-[350px]  xs:w-screen hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-90 bg-white/30  ${
@@ -31,7 +31,7 @@ export default function Sidebar() {
             onClick={() => {
               setIsSidebarOpen(false);
             }}
-            className="w-fit p-0 bg-transparent "
+            className="w-fit p-0 bg-transparent"
           >
             &larr;
           </button>
@@ -40,6 +40,9 @@ export default function Sidebar() {
           <input
             placeholder="search movies"
             className="px-7 py-3 w-full rounded-3xl"
+            onClick={() => {
+              setSearchOpen(true)
+            }}
           />
         </div>
         <div className="h-[600px] sm:h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
