@@ -17,7 +17,7 @@ const [loading, setLoading] = useState(true)
         setLoading(true)
       }
       else setLoading(false)
-    }, 1000)
+    }, 6000)
     
     setLoading(true)
   }, []);

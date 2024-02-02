@@ -21,7 +21,7 @@ export const fetchMovieImg = (pathName) =>
   );
   export const fetchSimilarMovies = (id) =>
   mainApi.get(`/movie/${id}/similar?api_key=${config.apikey}&language=en-US`);
-  export const searchMovies = (keyword, page) =>
+  export const searchMovies = (keyword) =>
   mainApi.get(
-    `/search/movie?api_key=${config.apikey}&language=en-US&page=${page}&include_adult=false&query=${keyword}`
+    `/search/movie?api_key=${config.apikey}&language=en-US&page=1&include_adult=false&query=${keyword}`
   );
