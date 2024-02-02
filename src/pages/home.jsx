@@ -1,9 +1,9 @@
 import { useAppContext } from "../contexts/context";
-import LandingHero from "../components/landingHero";
+import HeroSection from "../components/hero";
 import styled from "styled-components";
 import FilterMovies from "../components/filterMovies";
 import UpcomingMovies from "../components/upcoming";
-import TopCrew from "../layouts/components/topCrew";
+import TopCrew from "../components/topCrew";
 import { useEffect, useState } from "react";
 import { fetchPopularMovies } from "../utils/api/axios";
 export default function HomePage() {
@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>) : (
           <Container className="w-full flex flex-col gap-12 bg-black/5" >
             <div className="md:px-7 px-4 ">
-            <LandingHero />
+            <HeroSection />
       
             </div>
             <FilterMovies/>

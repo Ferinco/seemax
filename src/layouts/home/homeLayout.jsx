@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useAppContext } from "../../contexts/context";
 import Sidebar from "./sidebar";
-import HomePage from "../pages/home/home";
+import HomePage from "../../pages/home";
 import Navbar from "../components/navbar";
 import SearchDiv from "../../components/searchDiv";
 export default function HomeLayout() {

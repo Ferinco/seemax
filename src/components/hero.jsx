@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import OverlayProgress from "../custom/LoadingOverlay";
 import { Link } from "react-router-dom";
-export default function LandingHero() {
+export default function HeroSection() {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {

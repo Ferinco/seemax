@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCrew, fetchMovieImg } from "../../utils/api/axios";
+import { fetchCrew, fetchMovieImg } from "../utils/api/axios";
 import styled from "styled-components";
 
 export default function TopCrew() {

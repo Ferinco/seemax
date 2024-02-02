@@ -17,7 +17,7 @@ const [loading, setLoading] = useState(true)
         setLoading(true)
       }
       else setLoading(false)
-    }, 6000)
+    }, 1000)
     
     setLoading(true)
   }, []);
@@ -96,10 +96,10 @@ const [loading, setLoading] = useState(true)
         </div>
         </div>
         <div className="flex flex-row justify-between icon mt-5">
-            <p>CONTACT US</p>
+            <p className="m-0 text-sm font-light">CONTACT US</p>
             <div className="flex flex-row float-end gap-6">
-            <p>ABOUT</p>
-            <p>THANK YOU, <Link to="https://www.themoviedb.org/" className="text-red-700 underline hover:text-red-700">TMDB</Link></p>
+            <p className="m-0 text-sm font-light">ABOUT</p>
+            <p className="m-0 text-sm font-light">THANK YOU, <Link to="https://www.themoviedb.org/" className="text-red-700 underline hover:text-red-700">TMDB</Link></p>
 
             </div>
         </div>
@@ -134,6 +134,6 @@ const Container = styled.div`
     color: white;
   }
   .icon{
-    color: grey !important;
+    color: #f1f1f1 !important;
   }
 `;

@@ -3,9 +3,9 @@ import "./App.css";
 import LandingPage from "./pages/landing";
 import LoginPage from "./pages/loginPage";
 import { AppProvider } from "./contexts/context";
-import HomeLayout from "./layouts/homeLayout";
+import HomeLayout from "../src/layouts/home/homeLayout"
 import Navbar from "./layouts/components/navbar";
-import DetailsLayout from "./layouts/detailsLayout";
+import DetailsLayout from "../src/layouts/details/detailsLayout";
 function App() {
   return (
     <AppProvider>

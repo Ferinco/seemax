@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
-import Navbar from "../navbar";
-import DetailsPage from "../../../pages/detailsPage";
-import { useAppContext } from "../../../contexts/context";
-import { fetchMovieImg, fetchSingleMovie } from "../../../utils/api/axios";
+import Navbar from "../components/navbar";
+import DetailsPage from "../../pages/detailsPage";
+import { useAppContext } from "../../../src/contexts/context";
+import { fetchMovieImg, fetchSingleMovie } from "../../../src/utils/api/axios";
 import { useParams } from "react-router-dom";
 
 export default function DetailsLayout() {
