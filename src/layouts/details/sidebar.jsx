@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useAppContext } from '../../../contexts/context';
-import { fetchMovieImg, fetchSimilarMovies } from '../../../utils/api/axios';
+import { useAppContext } from '../../contexts/context';
+import { fetchMovieImg, fetchSimilarMovies } from '../../utils/api/axios';
 import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import { useParams } from 'react-router-dom';

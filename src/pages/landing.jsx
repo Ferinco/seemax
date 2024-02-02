@@ -67,7 +67,7 @@ const [loading, setLoading] = useState(true)
           </h2>
           <p className="mt-5 text-xl font-semibold icon">DON'T MISS OUT ON THE MAGIC. WATCH IT!</p>
           <div className="flex flex-row gap-3 mt-6">
-              <Link to="/login" className="react-router-link">
+              <Link to="/home" className="react-router-link">
             <Button red normal className="w-36 py-3.5">
             GET STARTED
             </Button>

@@ -1,11 +1,11 @@
-import { useAppContext } from "../../contexts/context";
-import LandingHero from "../../components/landingHero";
+import { useAppContext } from "../contexts/context";
+import LandingHero from "../components/landingHero";
 import styled from "styled-components";
-import FilterMovies from "../../components/filterMovies";
-import UpcomingMovies from "../../components/upcoming";
-import TopCrew from "../../layouts/components/topCrew";
+import FilterMovies from "../components/filterMovies";
+import UpcomingMovies from "../components/upcoming";
+import TopCrew from "../layouts/components/topCrew";
 import { useEffect, useState } from "react";
-import { fetchPopularMovies } from "../../utils/api/axios";
+import { fetchPopularMovies } from "../utils/api/axios";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   const [movies, setMovies] = useState([]);

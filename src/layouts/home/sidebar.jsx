@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useAppContext } from "../contexts/context";
-import { fetchMovieImg, fetchTrendingMovies } from "../utils/api/axios";
+import { useAppContext } from "../../contexts/context";
+import { fetchMovieImg, fetchTrendingMovies } from "../../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 export default function Sidebar() {
-  const { isSidebarOpen, setIsSidebarOpen, isSearchOpen, setSearchOpen } = useAppContext();
+  const { isSidebarOpen, setIsSidebarOpen, isSearchOpen, setSearchOpen, query, setQuery } = useAppContext();
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     getMovies();
@@ -18,6 +18,10 @@ export default function Sidebar() {
       console.log(error);
     }
   }
+  const handleInput = (event) => {
+    setQuery(event.target.value);
+  };
+  console.log(query)
 console.log(isSearchOpen)
   return (
     <Container
@@ -43,6 +47,7 @@ console.log(isSearchOpen)
             onClick={() => {
               setSearchOpen(true)
             }}
+            onChange={handleInput}
           />
         </div>
         <div className="h-[600px] sm:h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
