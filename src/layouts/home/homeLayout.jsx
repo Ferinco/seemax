@@ -11,7 +11,7 @@ export default function HomeLayout() {
     <div className="overflow-hidden w-screen">
       <Sidebar />
       {isSearchOpen ? (
-        <div className="lg:ml-[350px] h-screen bg-black">
+        <div className="lg:ml-[350px] h-auto bg-black/5">
             <SearchDiv/>
         </div>
       ) : (
