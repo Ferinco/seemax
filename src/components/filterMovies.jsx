@@ -55,18 +55,29 @@ export default function FilterMovies() {
       <div className="body w-auto block md:pl-7 pr-4 pl-4">
         <div className="sub flex flex-row gap-2  overflow-auto w-fit">
           {movies.map((movie) => (
-            <div className="image h-72 w-60 relative flex flex-col justify-end">
+            <div className="image h-72 w-60 relative flex flex-col justify-end overflow-hidden rounded-3xl cursor-pointer">
               <img
                 src={fetchMovieImg(movie.backdrop_path)}
                 className="h-full w-full object-center object-cover rounded-3xl absolute "
               />
               <div className="absolute w-full h-full rounded-3xl flex flex-row justify-between p-3 items-end text-start bg-gradient-to-t from-neutral-800 30% via--100 90% to-transparent 100% ">
                 <div className="h-full flex flex-col justify-between">
-                  <div className=" justify-end flex flex-row mr-[-32px]">
-                    <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] ">
+                  <div className=" justify-end flex flex-col mr-[-32px] items-end">
+                    <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
                     <Link className="react-router-link" to={`/details/${movie?.id}`}>
                     <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
                       </Link>
+                  </div>
+                  <div className=" flex-col mt-5 gap-1 special-btns flex opacity-0">
+                  <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
+                    <Link className="react-router-link" to={`/details/${movie?.id}`}>
+                    <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
+                      </Link>
+                  </div> <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
+                    <Link className="react-router-link" to={`/details/${movie?.id}`}>
+                    <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
+                      </Link>
+                  </div>
                   </div>
                   </div>
                   <div className="flex flex-col">
@@ -143,5 +154,19 @@ const Wrapper = styled.div`
   }
   .sub {
     overflow: auto !important;
+  }
+  .image{
+    &:hover{
+      .special-btns{
+        display: flex;
+        transition: 0.5s;
+        opacity: 100;
+      }
+      img{
+        scale: 1.03;
+        transition: 0.3s;
+
+      }
+    }
   }
 `;

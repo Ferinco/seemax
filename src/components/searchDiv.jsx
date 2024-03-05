@@ -19,33 +19,33 @@ export default function SearchDiv() {
   const [results, setResults] = useState([]);
   const [first, setFirst] = useState();
   const [similar, setSimilar] = useState();
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    GetPopular();
-    GetTrending();
-    GetUpcoming();
-    GetResults();
-    GetSimilar();
-  }, []);
+
   async function GetResults() {
     try {
+      // setLoading(true);
       const response = await searchMovies(query);
       setResults(response.data.results);
       setFirst(response.data.results[1].id);
       console.log(first);
       console.log(results);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   }
   async function GetSimilar() {
     try {
+      // setLoading(true)
       const response = await fetchSimilarMovies(first);
       setSimilar(response.data.results);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   }
+  console.log(first);
   async function GetPopular() {
     try {
       const response = await fetchPopularMovies();
@@ -75,6 +75,14 @@ export default function SearchDiv() {
     }
   }
   console.log(query);
+
+  useEffect(() => {
+    GetPopular();
+    GetTrending();
+    GetUpcoming();
+    GetResults();
+    GetSimilar();
+  }, []);
   return (
     <Wrapper className="flex flex-col gap-3 justify-left align-center min-h-screen overflow-visible w-full">
       <div className="p-7 flex flex-col justify-start items-start text-2xl font-light gap-4">
@@ -371,26 +379,32 @@ export default function SearchDiv() {
         </div>
       ) : (
         <>
-          <div>
-            <div className="flex flex-row justify-start px-7">
-              <p>Top Results From "{query}"</p>
-            </div>
-            <div className="flex flex-row gap-1">
-              {results?.map((movie) => (
-                <div className="border">{movie?.title}</div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-row justify-start px-7">
-              <p>Similar Movies</p>
-            </div>
-            <div className="flex flex-row gap-1">
-              {similar?.map((movie) => (
-                <div className="border">{movie?.title}</div>
-              ))}
-            </div>
-          </div>
+          {loading ? (
+            "...loading"
+          ) : (
+            <>
+              <div>
+                <div className="flex flex-row justify-start px-7">
+                  <p>Top Results From "{query}"</p>
+                </div>
+                <div className="flex flex-row gap-1">
+                  {results?.map((movie) => (
+                    <div className="border">{movie?.title}</div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div className="flex flex-row justify-start px-7">
+                  <p>Similar Movies</p>
+                </div>
+                <div className="flex flex-row gap-1">
+                  {similar?.map((movie) => (
+                    <div className="border">{movie?.title}</div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
         </>
       )}
     </Wrapper>
