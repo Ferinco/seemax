@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
 background-color: ${(props)=> (props.red && "red") || (props.transparent && "transparent") };
-color: ${(props)=> (props.red && "white") || (props.transparent && "grey") };
+color: ${(props)=> (props.red && "white") || (props.transparent && "white") };
 border: ${(props)=> (props.red && "1px solid rgb(153 27 27)") || (props.transparent && "1px solid grey") };
 border-radius: ${(props)=> (props.small && "5px") || (props.normal && "30px") };
 font-size: 15px;

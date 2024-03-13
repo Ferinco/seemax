@@ -45,7 +45,7 @@ export default function UpcomingMovies() {
                     <Icon icon="bi:play-fill" color="black" fontSize={20} />
                     trailer
                   </button>
-                  <button className="bg-transparent border border-white px-5 rounded-3xl py-2">
+                  <button className="bg-transparent border border-white px-5 rounded-3xl py-2 text-white">
                     <Link
                       className="react-router-link"
                       to={`/details/${movie?.id}`}

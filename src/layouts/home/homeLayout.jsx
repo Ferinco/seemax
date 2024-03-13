@@ -11,12 +11,12 @@ export default function HomeLayout() {
     <div className="overflow-hidden w-screen">
       <Sidebar />
       {isSearchOpen ? (
-        <div className="lg:ml-[350px] h-auto bg-black/5">
+        <div className="lg:ml-[350px] h-auto bg-neutral-800">
             <SearchDiv/>
         </div>
       ) : (
         <div
-          className={`h-auto lg:ml-[350px] flex flex-col pt-1 relative screen ${
+          className={`h-auto lg:ml-[350px] flex flex-col pt-1 relative screen bg-neutral-800 ${
             isSidebarOpen ? "absolute " : "relative"
           }`}
         >

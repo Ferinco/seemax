@@ -64,24 +64,44 @@ export default function FilterMovies() {
                 <div className="h-full flex flex-col justify-between">
                   <div className=" justify-end flex flex-col mr-[-32px] items-end">
                     <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
-                    <Link className="react-router-link" to={`/details/${movie?.id}`}>
-                    <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
+                      <Link
+                        className="react-router-link"
+                        to={`/details/${movie?.id}`}
+                      >
+                        <Icon
+                          icon="majesticons:more-menu-line"
+                          width="30"
+                          color="white"
+                        />
                       </Link>
-                  </div>
-                  <div className=" flex-col mt-5 gap-1 special-btns flex opacity-0">
-                  <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
-                    <Link className="react-router-link" to={`/details/${movie?.id}`}>
-                    <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
-                      </Link>
-                  </div> <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
-                    <Link className="react-router-link" to={`/details/${movie?.id}`}>
-                    <Icon icon="majesticons:more-menu-line" width="30" color="white" />                   
-                      </Link>
-                  </div>
-                  </div>
+                    </div>
+                    <div className=" flex-col mt-5 gap-2 special-btns items-center flex opacity-0">
+                      
+                      <div className="icon-div">
+                        <Icon
+                          icon="material-symbols-light:favorite-outline"
+                          width="25"
+                          color="#bbbbbb"
+                        />
+                      </div>
+                      <div className="icon-div">
+                        <Icon
+                          icon="basil:plus-solid"
+                          width="30"
+                          color="#bbbbbb"
+                        />
+                      </div>
+                      <div className="icon-div ">
+                        <Icon
+                          icon="ic:round-share"
+                          width="20"
+                          color="#bbbbbb"
+                        />
+                      </div>{" "}
+                    </div>
                   </div>
                   <div className="flex flex-col">
-                    <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-[2px] px-3 w-fit text-xs h-fit mb-2">
+                    <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-[2px] px-3 w-fit text-xs h-fit mb-2 text-white">
                       {(() => {
                         switch (movie?.genre_ids[0]) {
                           case 28:
@@ -155,17 +175,18 @@ const Wrapper = styled.div`
   .sub {
     overflow: auto !important;
   }
-  .image{
-    &:hover{
-      .special-btns{
+
+  .image {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover {
+      .special-btns {
         display: flex;
         transition: 0.5s;
         opacity: 100;
       }
-      img{
+      img {
         scale: 1.03;
-        transition: 0.3s;
-
+        transition: 0.5s !important;
       }
     }
   }

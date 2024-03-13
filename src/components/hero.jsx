@@ -57,14 +57,14 @@ export default function HeroSection() {
             />
           </div>
           <div className="flex flex-col justify-between p-5 absolute  h-full items-start  backdrop-opacity-10 bg-black/50 rounded-[30px] w-full">
-            <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-1 px-3 flex flex-row items-center gap-1 text-sm">
+            <div className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-3xl py-1 px-3 flex flex-row items-center gap-1 text-sm text-white">
               <Icon icon="noto:fire" color="#f1f1f1" /> Popular Now
             </div>
             <div className="flex flex-row justify-between w-full items-end flex-wrap">
               <div className="flex flex-col justify-start items-start text-start max-w-[450px] gap-3">
                 <div className="flex flex-row gap-1">
                   {randomMovies[currentIndex]?.genre_ids?.slice(0, 3).map((genre) => (
-                    <div className="backdrop-blur-md backdrop-opacity-75 bg-white/30 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm">
+                    <div className="backdrop-blur-md backdrop-opacity-75 bg-white/30 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm text-white">
                       {(() => {
                         switch (genre) {
                           case 28:
@@ -132,7 +132,7 @@ export default function HeroSection() {
                     <Icon icon="bi:play-fill" color="black" fontSize={20} />
                     Trailer
                   </button>
-                  <button className="bg-transparent border border-white px-5 rounded-3xl">
+                  <button className="bg-transparent border border-white px-5 rounded-3xl text-white">
                    <Link className="react-router-link" to={`/details/${randomMovies[currentIndex]?.id}`}> Details</Link>
                   </button>
                 </div>
@@ -140,13 +140,13 @@ export default function HeroSection() {
               <div className="control-buttons flex flex-row h-fit gap-3 w-full sm:w-fit justify-end mt-3 sm:mt-0">
                 <button
                   onClick={handlePrev}
-                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0"
+                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0 text-white"
                 >
                   &lt;
                 </button>
                 <button
                   onClick={handleNext}
-                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0"
+                  className="backdrop-blur-md backdrop-opacity-50 bg-white/30 rounded-[50%] text-2xl h-[40px] w-[40px] p-0 text-white"
                 >
                   &gt;
                 </button>
@@ -161,5 +161,6 @@ export default function HeroSection() {
   );
 }
 const Container = styled.div`
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 `;

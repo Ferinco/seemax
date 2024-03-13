@@ -34,7 +34,7 @@ export default function HomePage() {
       loading ? (<div className="h-screen w-full bg-black">
         
         </div>) : (
-          <Container className="w-full flex flex-col gap-12 bg-black/5" >
+          <Container className="w-full flex flex-col gap-12" >
             <div className="md:px-7 px-4 ">
             <HeroSection />
       

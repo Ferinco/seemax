@@ -42,7 +42,7 @@ const [loading, setLoading] = useState(true)
     <>
     {
      loading  ? <OverlayProgress/> :
-    <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-3">
+    <Container className="p-0 h-screen w-[100vw] wrapp overflow-hidden py-3 bg-black backdrop-blur-sm backdrop-opacity-90">
       <div className="container mx-auto flex flex-col justify-between h-full px-3 lg:px-0"> 
         <div className="flex flex-row justify-between items-center">
         <Icon className="text-5xl toggle" icon="ion:toggle" />

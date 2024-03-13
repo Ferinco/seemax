@@ -149,13 +149,17 @@ button:focus-visible {
   border: none !important;
 }
 .closed {
-  /* margin-left: -1000px !important; */
-  transition: 0.3s;
+  margin-left: -1000px !important;
+  transition: 0.3s !important;
+}
+.sidebar{
+  transition: 0.3s !important;
 }
 .opened {
   display: flex !important;
+  margin-left: 0 !important;
   /* width: 350px !important; */
-  /* position: absolute !important; */
+  /* position: relative !important; */
   z-index: 999;
-  transition: 0.3s;
+  transition: 0.3s !important;
 }

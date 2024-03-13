@@ -4,8 +4,17 @@ import { fetchMovieImg, fetchTrendingMovies } from "../../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 export default function Sidebar() {
-  const { isSidebarOpen, setIsSidebarOpen, isSearchOpen, setSearchOpen, query, setQuery } = useAppContext();
+  const {
+    isSidebarOpen,
+    setIsSidebarOpen,
+    isSearchOpen,
+    setSearchOpen,
+    query,
+    setQuery,
+  } = useAppContext();
   const [movies, setMovies] = useState([]);
+  const [backdrop, setBackdrop] = useState();
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -14,6 +23,7 @@ export default function Sidebar() {
     try {
       const response = await fetchTrendingMovies();
       setMovies(response.data.results);
+      setBackdrop(response.data.results[0]);
     } catch (error) {
       console.log(error);
     }
@@ -21,13 +31,24 @@ export default function Sidebar() {
   const handleInput = (event) => {
     setQuery(event.target.value);
   };
-  console.log(query)
-console.log(isSearchOpen)
+  console.log(query);
+  console.log(isSearchOpen);
+
+  const backgroundImageStyle = {
+    backgroundImage: `url(${fetchMovieImg(backdrop?.backdrop_path)})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "cover",
+
+
+  };
+
   return (
     <Container
-      className={`h-screen w-[350px]  xs:w-screen hidden lg:flex left-0 top-0 right-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-90 bg-white/30  ${
+      className={`h-screen w-[350px] flex top-0 bottom-0 fixed backdrop-blur-lg backdrop-opacity-90 bg-black/30 sidebar ${
         isSidebarOpen ? "opened " : "closed"
       }`}
+      // style={backgroundImageStyle}
     >
       <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] xs:w-screen h-screen fixed">
         <div className="flex flex-row justify-end lg:hidden">
@@ -43,14 +64,14 @@ console.log(isSearchOpen)
         <div className="field rounded-3xl">
           <input
             placeholder="search movies"
-            className="px-7 py-3 w-full rounded-3xl"
+            className="px-7 py-3 w-full rounded-3xl backdrop-blur-sm bg-white/10 text-white outline-none"
             onClick={() => {
-              setSearchOpen(true)
+              setSearchOpen(true);
             }}
             onChange={handleInput}
           />
         </div>
-        <div className="h-[600px] sm:h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-md bg-neutral-700 ">
+        <div className="h-[80vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm bg-white/10"  style={backgroundImageStyle}>
           <p className="fixed font-semibold flex flex-row items-baseline gap-1 ">
             {" "}
             <Icon icon="noto:fire" color="#f1f1f1" /> Trending Now
@@ -79,4 +100,13 @@ console.log(isSearchOpen)
 }
 const Container = styled.div`
   /* width: 350px !important; */
+  @media screen and (max-width: 1024px) {
+   margin-left : -1000px ;
+  }
+input{
+  &::placeholder{
+    color: white;
+    font-weight: 300;
+  }
+}
 `;
