@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { useAppContext } from '../../contexts/context';
-import { fetchMovieImg, fetchSimilarMovies } from '../../utils/api/axios';
-import styled from 'styled-components';
-import { Icon } from '@iconify/react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useAppContext } from "../../contexts/context";
+import { fetchMovieImg, fetchSimilarMovies } from "../../utils/api/axios";
+import styled from "styled-components";
+import { Icon } from "@iconify/react";
+import { useParams } from "react-router-dom";
 
 export default function Sidebar() {
-    const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
-    const [movies, setMovies] = useState([]);
-    const {id} = useParams()
-    useEffect(() => {
-      getMovies();
-    }, []);
-  
-    async function getMovies() {
-      try {
-        const response = await fetchSimilarMovies(id);
-        setMovies(response.data.results);
-      } catch (error) {
-        console.log(error);
-      }
+  const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
+  const [movies, setMovies] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  async function getMovies() {
+    try {
+      const response = await fetchSimilarMovies(id);
+      setMovies(response.data.results);
+    } catch (error) {
+      console.log(error);
     }
+  }
   return (
     <Container
-      className={`h-screen w-[350px] hidden lg:flex left-0 top-0 right-0 bottom-0 fixed  backdrop-opacity-100 bg-black/45 backdrop-blur-sm {
+      className={`h-screen w-[350px] flex top-0 bottom-0 fixed  backdrop-opacity-100 bg-black/45 backdrop-blur-sm ${
         isSidebarOpen ? "opened " : "closed"
       }`}
     >
-     <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] h-screen fixed">
+      <div className="container flex flex-col py-3 px-4 gap-2 w-[350px] h-screen fixed">
         <div className="flex flex-row justify-end lg:hidden">
           <button
             onClick={() => {
@@ -44,8 +44,11 @@ export default function Sidebar() {
             className="px-7 py-4 w-full rounded-3xl backdrop-blur-sm backdrop-opacity-10 bg-white/40 font-light text-sm"
           />
         </div>
-        <div className="h-[500px] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
-          <p className="fixed font-semibold flex flex-row items-baseline gap-1"> <Icon icon="noto:fire" color="#f1f1f1" /> Similar Movies</p>
+        <div className="h-[80vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
+          <p className="fixed font-semibold flex flex-row items-baseline gap-1">
+            {" "}
+            <Icon icon="noto:fire" color="#f1f1f1" /> Similar Movies
+          </p>
           <div className="flex flex-col gap-3 mt-9">
             {movies.map((movie) => (
               <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
@@ -68,12 +71,14 @@ export default function Sidebar() {
   );
 }
 const Container = styled.div`
-  width: 350px !important;
-  input{
-    &::placeholder{
+  /* width: 350px !important; */
+  @media screen and (max-width: 1024px) {
+    margin-left: -1000px;
+  }
+  input {
+    &::placeholder {
       color: white;
       font-weight: 400 !important;
     }
   }
 `;
-

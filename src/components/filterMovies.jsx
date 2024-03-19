@@ -4,8 +4,11 @@ import { fetchMovieImg, fetchPopularMovies } from "../utils/api/axios";
 import { Icon } from "@iconify/react";
 import { GetMovieGenre } from "../utils/functions/genres";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../contexts/context";
 export default function FilterMovies() {
   const [movies, setMovies] = useState([]);
+  const {openTrailer, setTrailerOpen, movieId, setMovieId} =useAppContext()
+
   useEffect(() => {
     GetMovies();
   }, []);
@@ -53,7 +56,7 @@ export default function FilterMovies() {
         </div>
       </div>
       <div className="body w-auto block md:pl-7 pr-4 pl-4">
-        <div className="sub flex flex-row gap-2  overflow-auto w-fit">
+        <div className="sub flex flex-row gap-2  overflow-auto w-fit h-80">
           {movies.map((movie) => (
             <div className="image h-72 w-60 relative flex flex-col justify-end overflow-hidden rounded-3xl cursor-pointer">
               <img
@@ -157,7 +160,11 @@ export default function FilterMovies() {
                   </div>
                 </div>
                 <div className="icon-div p-2 bg-white rounded-[50%]">
-                  <Icon icon="bi:play-fill" color="black" />
+                  <Icon icon="bi:play-fill" color="black" className="cursor-pointer" 
+                   onClick={()=>{
+                    setMovieId(movie?.id)
+                    setTrailerOpen(true)
+                  }}/>
                 </div>
               </div>
             </div>

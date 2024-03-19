@@ -21,7 +21,11 @@ export const fetchMovieImg = (pathName) =>
   );
   export const fetchSimilarMovies = (id) =>
   mainApi.get(`/movie/${id}/similar?api_key=${config.apikey}&language=en-US`);
+  export const watchTrailer = (id) =>
+  mainApi.get(`/movie/${id}/videos?api_key=${config.apikey}&language=en-US`);
   export const searchMovies = (keyword) =>
   mainApi.get(
     `/search/movie?api_key=${config.apikey}&language=en-US&page=1&include_adult=false&query=${keyword}`
   );
+  // https://api.themoviedb.org/3/movie/{movie_id}/videos
+

@@ -3,10 +3,13 @@ import { fetchPopularMovies, fetchMovieImg } from "../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import OverlayProgress from "../custom/LoadingOverlay";
+import { watchTrailer } from "../utils/api/axios";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../contexts/context";
 export default function HeroSection() {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const {openTrailer, setTrailerOpen, movieId, setMovieId} =useAppContext()
   useEffect(() => {
     GetMovies();
   }, []);
@@ -17,10 +20,18 @@ export default function HeroSection() {
       setMovies(response.data.results);
       console.log(movies);
     } catch (error) {
-      ComponentStyle.log(error);
+      console.log(error);
     }
   }
 
+  async function GetVideos() {
+    try {
+      const response = await watchTrailer(randomMovies[currentIndex]?.id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const getRandomMovies = () => {
     const shuffledMovies = [...movies];
     for (let i = shuffledMovies.length - 1; i > 0; i--) {
@@ -128,7 +139,11 @@ export default function HeroSection() {
                 </p>
                </div>
                 <div className="buttons flex flex-row gap-3">
-                  <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2">
+                  <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2"
+                  onClick={()=>{
+                    setMovieId(randomMovies[currentIndex]?.id)
+                    setTrailerOpen(true)
+                  }}>
                     <Icon icon="bi:play-fill" color="black" fontSize={20} />
                     Trailer
                   </button>

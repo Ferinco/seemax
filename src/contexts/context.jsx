@@ -4,6 +4,8 @@ export function AppProvider({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [movieId, setMovieId] = useState("");
+  const [openTrailer, setTrailerOpen] = useState(false);
 
   return (
     <AppContext.Provider
@@ -14,6 +16,10 @@ export function AppProvider({ children }) {
         setSearchOpen,
         query,
         setQuery,
+        openTrailer,
+        setTrailerOpen,
+        movieId,
+        setMovieId,
       }}
     >
       {children}

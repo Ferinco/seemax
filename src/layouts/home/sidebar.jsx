@@ -39,8 +39,6 @@ export default function Sidebar() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "cover",
-
-
   };
 
   return (
@@ -71,14 +69,18 @@ export default function Sidebar() {
             onChange={handleInput}
           />
         </div>
-        <div className="h-[80vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm bg-white/10"  style={backgroundImageStyle}>
-          <p className="fixed font-semibold flex flex-row items-baseline gap-1 ">
+        <div
+          className="h-[80vh] rounded-[30px] trending-div  flex flex-col gap-3 px-7 py-6 backdrop-blur-sm bg-white/10 relative"
+          style={backgroundImageStyle}
+        >
+          <p className="fixed font-semibold flex flex-row items-baseline gap-1 backdrop-blur-sm">
             {" "}
-            <Icon icon="noto:fire" color="#f1f1f1" /> Trending Now
+            <Icon icon="noto:fire" color="#f1f1f1" className="relative"/> Trending Now
           </p>
 
-          <div className="flex flex-col gap-3 mt-9">
-            {movies.map((movie) => (
+          <div className="block gap-3 mt-9 relative h-full overflow-y-auto">
+          <div className="h-fit flex flex-col overflow-y-auto gap-3">
+          {movies.map((movie) => (
               <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
                 <img
                   src={fetchMovieImg(movie.backdrop_path)}
@@ -93,6 +95,7 @@ export default function Sidebar() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </div>
     </Container>
@@ -101,12 +104,12 @@ export default function Sidebar() {
 const Container = styled.div`
   /* width: 350px !important; */
   @media screen and (max-width: 1024px) {
-   margin-left : -1000px ;
+    margin-left: -1000px;
   }
-input{
-  &::placeholder{
-    color: white;
-    font-weight: 300;
+  input {
+    &::placeholder {
+      color: white;
+      font-weight: 300;
+    }
   }
-}
 `;

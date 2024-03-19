@@ -13,7 +13,7 @@ export default function Navbar(){
             <div className="py-2 pl-3 pr-6 backdrop-blur-sm bg-white/30  rounded-3xl flex flex-row items-center gap-2 ">
                 <div className="rounded-[50%] w-[25px] h-[25px] bg-neutral-950"></div> <div className="flex flex-col text-xs texts text-start">
                 <p className="m-0">Ferinco User</p>
-                <p className="m-0">emmaoluwaferrum...</p>
+                <p className="m-0">emmaoluwa...</p>
 
                 </div>
             </div>

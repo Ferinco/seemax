@@ -44,7 +44,7 @@ export default function DetailsPage() {
               <div className="flex flex-row gap-1 mb-2">
                 {details?.genres?.map((genre, index) => (
                   <div
-                    className="backdrop-blur-md backdrop-opacity-75 bg-white/35 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm"
+                    className="backdrop-blur-md backdrop-opacity-75 bg-white/35 rounded-3xl py-[2px] px-3 h-fit  w-fit text-sm text-white"
                     key={index}
                   >
                     {(() => {
@@ -103,7 +103,7 @@ export default function DetailsPage() {
                   <Icon icon="bi:play-fill" color="black" fontSize={20} />
                   Trailer
                 </button>
-                <button className="bg-transparent border border-white px-5 rounded-3xl">
+                <button className="bg-transparent border border-white px-5 rounded-3xl text-white">
                   Add to Watchlist
                 </button>
               </div>

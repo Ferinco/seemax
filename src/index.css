@@ -149,17 +149,23 @@ button:focus-visible {
   border: none !important;
 }
 .closed {
-  margin-left: -1000px !important;
   transition: 0.3s !important;
 }
 .sidebar{
   transition: 0.3s !important;
+  /* position: relative !important; */
 }
 .opened {
   display: flex !important;
   margin-left: 0 !important;
   /* width: 350px !important; */
-  /* position: relative !important; */
   z-index: 999;
   transition: 0.3s !important;
+}
+@media screen and (max-width: 1024px) {
+  .closed {
+    transition: 0.3s !important;
+    margin-left: -1000px !important;
+  }
+  
 }
