@@ -94,7 +94,7 @@ export default function Trailer() {
              </div>
              <div className="flex flex-row justify-between px-5 ">
                <YouTube
-                 id={"lkSjOjqjZak"}
+                 id={videoId}
                  className={"youtube rounded-3xl w-[600px] h-[300px]"}
                  iframeClassName={"iframe rounded-3xl w-full h-full"}
                />
