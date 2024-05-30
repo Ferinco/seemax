@@ -86,9 +86,9 @@ export default function SearchDiv() {
 
   return (
     <Wrapper className="flex flex-col gap-1 justify-left align-center min-h-screen w-full">
-      <div className="p-7 flex flex-col justify-start items-start text-2xl font-light gap-2">
+      <div className="p-7 flex flex-row justify-start items-center text-2xl font-light gap-2">
         <Icon
-          icon="mingcute:arrow-left-fill"
+          icon="solar:arrow-left-linear"
           className="cursor-pointer"
           onClick={() => {
             setSearchOpen(false);
