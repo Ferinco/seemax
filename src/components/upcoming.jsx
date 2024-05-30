@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { fetchMovieImg, getUpcomingMovies } from "../utils/api/axios";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { useAppContext } from "../contexts/context";
 
 export default function UpcomingMovies() {
   const [movies, setMovies] = useState([]);
+  const { openTrailer, setTrailerOpen, movieId, setMovieId } = useAppContext();
+
   useEffect(() => {
     getMovies();
   }, []);
@@ -41,7 +44,13 @@ export default function UpcomingMovies() {
                   </p>
                 </div>
                 <div className="buttons flex flex-row gap-3">
-                  <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2 h-fit py-2">
+                  <button
+                    className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2 h-fit py-2"
+                    onClick={() => {
+                      setMovieId(movie?.id);
+                      setTrailerOpen(true);
+                    }}
+                  >
                     <Icon icon="bi:play-fill" color="black" fontSize={20} />
                     trailer
                   </button>

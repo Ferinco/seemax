@@ -3,6 +3,7 @@ import { useAppContext } from "../../contexts/context";
 import { fetchMovieImg, fetchTrendingMovies } from "../../utils/api/axios";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 export default function Sidebar() {
   const {
     isSidebarOpen,
@@ -11,6 +12,10 @@ export default function Sidebar() {
     setSearchOpen,
     query,
     setQuery,
+    openTrailer,
+    setTrailerOpen,
+    movieId,
+    setMovieId,
   } = useAppContext();
   const [movies, setMovies] = useState([]);
   const [backdrop, setBackdrop] = useState();
@@ -75,26 +80,37 @@ export default function Sidebar() {
         >
           <p className="fixed font-semibold flex flex-row items-baseline gap-1 backdrop-blur-sm">
             {" "}
-            <Icon icon="noto:fire" color="#f1f1f1" className="relative"/> Trending Now
+            <Icon icon="noto:fire" color="#f1f1f1" className="relative" />{" "}
+            Trending Now
           </p>
 
           <div className="block gap-3 mt-9 relative h-full overflow-y-auto">
-          <div className="h-fit flex flex-col overflow-y-auto gap-3">
-          {movies.map((movie) => (
-              <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
-                <img
-                  src={fetchMovieImg(movie.backdrop_path)}
-                  className="w-full h-full rounded-[20px] object-cover object-center absolute"
-                />
-                <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between items-center">
-                  <p className="text-start m-0">{movie.title}</p>
-                  <div className="icon-div p-2 bg-white/50 rounded-[50%]">
-                    <Icon icon="bi:play-fill" color="white" />
+            <div className="h-fit flex flex-col overflow-y-auto gap-3">
+              {movies.map((movie) => (
+                <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
+                 <Link className="w-full h-full rounded-[20px] absolute"  to={`/details/${movie?.id}`}>
+                 <img
+                    src={fetchMovieImg(movie?.backdrop_path)}
+                    className="w-full h-full rounded-[20px] object-cover object-center"
+                  />
+                 </Link>
+                  <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between items-center">
+                    <p className="text-start m-0">{movie?.title}</p>
+                    <div className="icon-div p-2 bg-white/50 rounded-[50%]">
+                      <Icon
+                        icon="bi:play-fill"
+                        color="white"
+                        className="cursor-pointer"
+                        onClick={() => {
+                          setMovieId(movie?.id);
+                          setTrailerOpen(true);
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

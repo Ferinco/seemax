@@ -3,6 +3,7 @@ import { fetchMovieImg, fetchSingleMovie } from "../utils/api/axios";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import { useAppContext } from "../contexts/context";
 
 export default function DetailsPage() {
   const { id } = useParams();
@@ -10,11 +11,12 @@ export default function DetailsPage() {
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState(details?.overview);
   const [active, setActive] = useState("Overview");
+  const { openTrailer, setTrailerOpen, movieId, setMovieId } = useAppContext();
 
   useEffect(() => {
     GetDetails();
     setActive("Overview");
-  }, []);
+  }, [id]);
   async function GetDetails() {
     try {
       const response = await fetchSingleMovie(id);
@@ -27,7 +29,7 @@ export default function DetailsPage() {
       // setLoading(false);
     }
   }
-  console.log(tab);
+  console.log(details);
 
   return (
     <>
@@ -99,7 +101,13 @@ export default function DetailsPage() {
                 {details?.overview.split(" ").slice(0, 30).join(" ") + "..."}
               </p>
               <div className="buttons flex flex-row gap-3 mt-4">
-                <button className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2">
+                <button
+                  className="bg-white text-black rounded-3xl px-5 flex flex-row items-center gap-2"
+                  onClick={() => {
+                    setMovieId(details?.id);
+                    setTrailerOpen(true);
+                  }}
+                >
                   <Icon icon="bi:play-fill" color="black" fontSize={20} />
                   Trailer
                 </button>

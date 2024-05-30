@@ -478,7 +478,9 @@ export default function SearchDiv() {
                   </div>
                 </div>
               </div>
-              <div className="mt-5">
+             {
+              similar?.length > 0 ? (
+                <div className="mt-5">
                 <h4 className="pl-7 text-md font-medium flex flex-row gap-2 items-center">
                   <Icon icon="fxemoji:pushpin" />
                   Similar Movies
@@ -572,6 +574,8 @@ export default function SearchDiv() {
                   </div>
                 </div>
               </div>
+              ) : (<></>)
+             }
             </>
           )}
         </>

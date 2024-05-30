@@ -5,9 +5,11 @@ import DetailsPage from "../../pages/detailsPage";
 import { useAppContext } from "../../../src/contexts/context";
 import { fetchMovieImg, fetchSingleMovie } from "../../../src/utils/api/axios";
 import { useParams } from "react-router-dom";
+import Trailer from "../../components/trailerDiv";
 
 export default function DetailsLayout() {
-  const { isSidebarOpen, setIsSidebarOpen } = useAppContext();
+  const { isSidebarOpen, setIsSidebarOpen, openTrailer, setTrailerOpen } =
+    useAppContext();
   const { id } = useParams();
   const [details, setDetails] = useState();
   useEffect(() => {
@@ -22,6 +24,7 @@ export default function DetailsLayout() {
     }
   }
   return (
+    <>
     <div
       className="overflow-hidden w-screen bg-neutral-800"
       style={{
@@ -42,5 +45,8 @@ export default function DetailsLayout() {
         <DetailsPage />
       </div>
     </div>
+    {openTrailer ? <Trailer /> : ""}
+
+    </>
   );
 }

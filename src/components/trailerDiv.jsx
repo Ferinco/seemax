@@ -94,11 +94,11 @@ export default function Trailer() {
              </div>
              <div className="flex flex-row justify-between px-5 ">
                <YouTube
-                 id={videoId}
-                 className={"youtube rounded-3xl w-[600px]"}
+                 id={"lkSjOjqjZak"}
+                 className={"youtube rounded-3xl w-[600px] h-[300px]"}
                  iframeClassName={"iframe rounded-3xl w-full h-full"}
                />
-               <div className="flex flex-col max-w-[400px] gap-10 items-start text-start">
+               <div className="lg:flex flex-col max-w-[400px] gap-10 items-start text-start hidden">
                  <input
                    placeholder="Search Here"
                    className="py-2 px-4 bg-transparent w-fit"
