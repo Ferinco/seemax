@@ -65,7 +65,7 @@ export default function Sidebar() {
             onChange={handleInput}
           />
         </div>
-        <div className="h-[80vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
+        <div className="h-[87vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
           <p className="fixed font-semibold flex flex-row items-baseline gap-1">
             {" "}
             <Icon icon="noto:fire" color="#f1f1f1" /> Similar Movies
