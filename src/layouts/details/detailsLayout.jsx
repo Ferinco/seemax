@@ -6,10 +6,17 @@ import { useAppContext } from "../../../src/contexts/context";
 import { fetchMovieImg, fetchSingleMovie } from "../../../src/utils/api/axios";
 import { useParams } from "react-router-dom";
 import Trailer from "../../components/trailerDiv";
+import SearchDiv from "../../components/searchDiv";
 
 export default function DetailsLayout() {
-  const { isSidebarOpen, setIsSidebarOpen, openTrailer, setTrailerOpen } =
-    useAppContext();
+  const {
+    isSidebarOpen,
+    setIsSidebarOpen,
+    openTrailer,
+    setTrailerOpen,
+    isSearchOpen,
+    setSearchOpen,
+  } = useAppContext();
   const { id } = useParams();
   const [details, setDetails] = useState();
   useEffect(() => {
@@ -25,28 +32,33 @@ export default function DetailsLayout() {
   }
   return (
     <>
-    <div
-      className="overflow-hidden w-screen bg-neutral-800"
-      style={{
-        backgroundImage: `url(${details})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        minHeight: "100vh",
-      }}
-    >
-      <Sidebar />
       <div
-        className={` h-screen lg:ml-[350px] flex flex-col relative screen  backdrop-opacity-100 bg-black/40 ${
-          isSidebarOpen ? "absolute " : "relative"
-        }`}
+        className="overflow-hidden w-screen bg-neutral-800"
+        style={{
+          backgroundImage: `url(${details})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          minHeight: "100vh",
+        }}
       >
-        <Navbar />
-        <DetailsPage />
+        <Sidebar />
+        {isSearchOpen ? (
+          <div className="lg:ml-[350px] h-auto bg-neutral-800">
+            <SearchDiv />
+          </div>
+        ) : (
+          <div
+            className={` h-screen lg:ml-[350px] flex flex-col relative screen  backdrop-opacity-100 bg-black/40 ${
+              isSidebarOpen ? "absolute " : "relative"
+            }`}
+          >
+            <Navbar />
+            <DetailsPage />
+          </div>
+        )}
       </div>
-    </div>
-    {openTrailer ? <Trailer /> : ""}
-
+      {openTrailer ? <Trailer /> : ""}
     </>
   );
 }
