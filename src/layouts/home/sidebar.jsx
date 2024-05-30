@@ -75,7 +75,7 @@ export default function Sidebar() {
           />
         </div>
         <div
-          className="h-[80vh] rounded-[30px] trending-div  flex flex-col gap-3 px-7 py-6 backdrop-blur-sm bg-white/10 relative"
+          className="h-[87vh] rounded-[30px] trending-div  flex flex-col gap-3 px-7 py-6 backdrop-blur-sm bg-white/10 relative"
           style={backgroundImageStyle}
         >
           <p className="fixed font-semibold flex flex-row items-baseline gap-1 backdrop-blur-sm">
