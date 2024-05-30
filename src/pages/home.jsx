@@ -6,6 +6,7 @@ import UpcomingMovies from "../components/upcoming";
 import TopCrew from "../components/topCrew";
 import { useEffect, useState } from "react";
 import { fetchPopularMovies } from "../utils/api/axios";
+import Footer from "../components/footer";
 export default function HomePage() {
   const { isSidebarOpen } = useAppContext();
   const [movies, setMovies] = useState([]);
@@ -42,6 +43,7 @@ export default function HomePage() {
             <FilterMovies/>
             <UpcomingMovies/>
             <TopCrew/>
+            <Footer/>
           </Container>
 
         )
