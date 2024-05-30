@@ -50,12 +50,12 @@ export default function Sidebar() {
             onClick={() => {
               setIsSidebarOpen(false);
             }}
-            className="w-fit p-0 bg-transparent "
+            className="w-fit p-0 bg-transparent"
           >
             &larr;
           </button>
         </div>
-        <div className="field rounded-3xl ">
+        <div className="field rounded-3xl">
           <input
             placeholder="search movies"
             className="px-7 py-4 w-full rounded-3xl backdrop-blur-sm backdrop-opacity-10 bg-white/40 font-light text-sm"
@@ -68,25 +68,31 @@ export default function Sidebar() {
         <div className="h-[87vh] rounded-[30px] trending-div overflow-auto flex flex-col gap-3 px-7 py-6 backdrop-blur-sm backdrop-opacity-10 bg-white/10  ">
           <p className="fixed font-semibold flex flex-row items-baseline gap-1">
             {" "}
-            <Icon icon="noto:fire" color="#f1f1f1" /> Similar Movies
+            <Icon icon="noto:fire" color="#f1f1f1" className="relative" />{" "}
+            Similar Movies
           </p>
-          <div className="flex flex-col gap-3 mt-9">
-            {movies.map((movie) => (
-              <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
-               <Link className="w-full h-full rounded-[20px] absolute"  to={`/details/${movie?.id}`}>
-                 <img
-                    src={fetchMovieImg(movie?.backdrop_path)}
-                    className="w-full h-full rounded-[20px] object-cover object-center"
-                  />
-                 </Link>
-                <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between items-center">
-                  <p className="text-start m-0">{movie.title}</p>
-                  <div className="icon-div p-2 bg-white/50 rounded-[50%]">
-                    <Icon icon="bi:play-fill" color="white" />
+          <div className="block gap-3 mt-9 relative h-full overflow-y-auto">
+            <div className="h-fit flex flex-col overflow-y-auto gap-3">
+              {movies.map((movie) => (
+                <div className="image h-48 rounded-[20px] relative flex flex-col justify-end">
+                  <Link
+                    className="w-full h-full rounded-[20px] absolute"
+                    to={`/details/${movie?.id}`}
+                  >
+                    <img
+                      src={fetchMovieImg(movie?.backdrop_path)}
+                      className="w-full h-full rounded-[20px] object-cover object-center"
+                    />
+                  </Link>
+                  <div className="absolute w-full h-[30%] test-div backdrop-blur-sm bg-black/30 flex rounded-b-[20px] p-3 flex-row justify-between items-center">
+                    <p className="text-start m-0">{movie.title}</p>
+                    <div className="icon-div p-2 bg-white/50 rounded-[50%]">
+                      <Icon icon="bi:play-fill" color="white" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
