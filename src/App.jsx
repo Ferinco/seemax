@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/home" element={<HomeLayout />} />
+            <Route path="/home" element={<HomeLayout />}/>
             <Route path="/details/:id" element={<DetailsLayout />} />
           </Routes>
         </BrowserRouter>

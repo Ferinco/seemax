@@ -12,7 +12,6 @@ export default function HomePage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     GetMovies();
   }, []);
@@ -22,36 +21,28 @@ export default function HomePage() {
       const response = await fetchPopularMovies();
       setMovies(response.data.results);
       console.log(response.data.results);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false)
-
+      setLoading(false);
     }
   }
   return (
     <>
-    {
-      loading ? (<div className="h-screen w-full bg-black">
-        
-        </div>) : (
-          <Container className="w-full flex flex-col gap-12" >
-            <div className="md:px-7 px-4 ">
+      {loading ? (
+        <div className="h-screen w-full bg-black"></div>
+      ) : (
+        <Container className="w-full flex flex-col gap-12">
+          <div className="md:px-7 px-4 ">
             <HeroSection />
-      
-            </div>
-            <FilterMovies/>
-            <UpcomingMovies/>
-            <TopCrew/>
-            <Footer/>
-          </Container>
-
-        )
-    }
-  </>
-  )
-
+          </div>
+          <FilterMovies />
+          <UpcomingMovies />
+          <TopCrew />
+          <Footer />
+        </Container>
+      )}
+    </>
+  );
 }
-const Container = styled.div`
-
-`
+const Container = styled.div``;

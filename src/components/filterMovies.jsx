@@ -63,7 +63,7 @@ export default function FilterMovies() {
                 src={fetchMovieImg(movie.backdrop_path)}
                 className="h-full w-full object-center object-cover rounded-3xl absolute "
               />
-              <div className="absolute w-full h-full rounded-3xl flex flex-row justify-between p-3 items-end text-start bg-gradient-to-t from-neutral-800 30% via--100 90% to-transparent 100% ">
+              <div className="absolute w-full h-full rounded-3xl flex flex-row justify-between p-3 items-end text-start bg-gradient-to-t from-neutral-800 30% via--100 90% to-transparent 100%">
                 <div className="h-full flex flex-col justify-between">
                   <div className=" justify-end flex flex-col mr-[-32px] items-end">
                     <div className="icon-div p-0 backdrop-opacity-50 backdrop-blur-md bg-black/50 rounded-[50%] w-fit">
