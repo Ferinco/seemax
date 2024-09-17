@@ -32,17 +32,16 @@
   0px 34px 30px rgba(0,0,0,0.1);
 }
 
-/* For WebKit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 7px; /* Adjust the width as needed */
+  width: 7px; 
 }
 
 p, h2, h1, h4, h5, h6{
 color: white !important;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #ffffff; /* Color of the thumb (dragging part) */
-  border-radius: 6px; /* Rounded corners */
+  background-color: #ffffff; 
+  border-radius: 6px; 
 }
 
 
@@ -51,7 +50,7 @@ color: white !important;
   }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent; /* Color of the track (background) */
+  background-color: transparent;
 }
 
 
